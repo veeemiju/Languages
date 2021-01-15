@@ -1,0 +1,8 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+- file: intro
+- part: Exercises
+  chapters:
+  - file: exercises/shakespeare
+  - file: exercises/wordcloud
+
