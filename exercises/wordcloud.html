@@ -249,7 +249,8 @@
                 
   <div class="section" id="wordcloud">
 <h1>Wordcloud<a class="headerlink" href="#wordcloud" title="Permalink to this headline">¶</a></h1>
-<p>Word cloud is a visual representation of text data that can be shown for example in a shape of a cloud. The words in the cloud are typically represented in different colors and font-sizes. See an example of a word cloud below! <img alt="cloud" src="../_images/opendata-cloud.png" /></p>
+<p>Word cloud is a visual representation of text data that can be shown for example in a shape of a cloud. The words in the cloud are typically represented in different colors and font-sizes. See an example of a word cloud below!</p>
+<p><img alt="cloud" src="../_images/opendata-cloud.png" /></p>
 <p>In this exercise we are going to create a word cloud of our own. We are going to use ice cream stall reviews from Helsinki area as our data that we want to display. The aim is to:</p>
 <ul class="simple">
 <li><p>Read the review data from a file</p></li>
@@ -623,7 +624,10 @@
 </div>
 </div>
 <p>That’s it! We’ve created a cool, ice cream -shaped wordcloud from ice cream stall reviews! Now, try to make a word cloud yourself from some other set of words! You can even try to create your own mask for the figure.</p>
-<p>Note! If you want to define the weight of each word as a number instead of it’s frequency in a text, you can generate the cloud using <a class="reference external" href="https://amueller.github.io/word_cloud/generated/wordcloud.WordCloud.html"><code class="docutils literal notranslate"><span class="pre">generate_from_frequencies()</span></code></a>-method. You just need to pass a dictionary as a parameter. For example you could write</p>
+<p>Happy coding!</p>
+<div class="alert alert-block alert-info">
+<b>Note</b> 
+<p>If you want to define the weight of each word as a number instead of it’s frequency in a text, you can generate the cloud using <a class="reference external" href="https://amueller.github.io/word_cloud/generated/wordcloud.WordCloud.html"><code class="docutils literal notranslate"><span class="pre">generate_from_frequencies()</span></code></a>-method. You just need to pass a dictionary as a parameter. For example you could write</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Dog&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;Cat&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Cow&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Platypus&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
 <span class="n">wordcloud</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
 </pre></div>
@@ -633,7 +637,6 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;filename.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Happy coding!</p>
 </div>
 </div>
 
