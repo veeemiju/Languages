@@ -1,0 +1,698 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wordcloud &#8212; Languages</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://opendata-education.github.io/Languages/intro.html/exercises/wordcloud.html" />
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Analyzing Shakespeare" href="shakespeare.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://opendata-education.github.io/Languages/intro.html/exercises/wordcloud.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Wordcloud" />
+<meta property="og:description" content="Wordcloud  Word cloud is a visual representation of text data that can be shown for example in a shape of a cloud. The words in the cloud are typically represen" />
+<meta property="og:image"       content="https://opendata-education.github.io/Languages/intro.html/_static/logo.png" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Languages</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to the world of open data
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Exercises
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="shakespeare.html">
+   Analyzing Shakespeare
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Wordcloud
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/exercises/wordcloud.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/opendata-education/Languages"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/opendata-education/Languages/issues/new?title=Issue%20on%20page%20%2Fexercises/wordcloud.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/opendata-education/Languages/main?urlpath=tree/content/exercises/wordcloud.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#importing-the-review-data">
+   Importing the review data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cleaning-the-data">
+   Cleaning the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-the-cloud">
+   Making the cloud
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="wordcloud">
+<h1>Wordcloud<a class="headerlink" href="#wordcloud" title="Permalink to this headline">¶</a></h1>
+<p>Word cloud is a visual representation of text data that can be shown for example in a shape of a cloud. The words in the cloud are typically represented in different colors and font-sizes. See an example of a word cloud below! <img alt="cloud" src="../_images/opendata-cloud.png" /></p>
+<p>In this exercise we are going to create a word cloud of our own. We are going to use ice cream stall reviews from Helsinki area as our data that we want to display. The aim is to:</p>
+<ul class="simple">
+<li><p>Read the review data from a file</p></li>
+<li><p>Clean the data such that it contains no stop words</p></li>
+<li><p>Display the data in a word cloud that has a form of an ice cream</p></li>
+</ul>
+<p>Let’s get to work!</p>
+<div class="section" id="importing-the-review-data">
+<h2>Importing the review data<a class="headerlink" href="#importing-the-review-data" title="Permalink to this headline">¶</a></h2>
+<p>We begin by importing the data we need. The data is available on a csv-file called “icecream_stall_reviews.csv”. It is a collection of ice cream stall reviews that have been <a class="reference external" href="https://en.wikipedia.org/wiki/Web_scraping">scraped</a> from <a class="reference external" href="https://foursquare.com/explore?mode=url&amp;near=Helsinki&amp;nearGeoId=72057594038586161&amp;q=Ice%20cream">foursquare.com</a>. To read it, we can use a python-library called <a class="reference external" href="https://pandas.pydata.org/">pandas</a>. The function <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">read_csv()</span></code></span> can do the job for us if we know the path to the data file. The file is in the same directory as this notebook-file so we can use the name of the file as it is.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Save the table to variable &#39;data&#39;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/icecream_stall_reviews.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># Let&#39;s read the first few lines of the file</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>Title</th>
+      <th>Reviews</th>
+      <th>Ratings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>Jädelino</td>
+      <td>Chili chocolate flavour to burn you and matcha...</td>
+      <td>9.1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Bus Gelato</td>
+      <td>Great Service good coffee and excellent artesa...</td>
+      <td>8.7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>Helsingin Jäätelötehdas</td>
+      <td>Great ice cream. Comes at a price though</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>Helsingin jäätelötehtaan kioski</td>
+      <td>Best ice cream by the biggest scoops I've trie...</td>
+      <td>7.8</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Fazer Café</td>
+      <td>I have been coming here for many years great c...</td>
+      <td>8.2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="cleaning-the-data">
+<h2>Cleaning the data<a class="headerlink" href="#cleaning-the-data" title="Permalink to this headline">¶</a></h2>
+<p>It seems that our data consists of the name of the stall, review-text and a rating number. Our next task is to extract the review-texts from the table, tokenize them and then clean them. We have done similar task already on a previous exercise where we studied Shakespeare’s Hamlet. Let’s do the cleaning this time using some efficient <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">list comprehensions</a> and <a class="reference external" href="https://docs.python.org/3/reference/expressions.html#lambda">lambda</a>-expressions. Don’t worry if these look too overwhelming, these are just a way to do things quicker.</p>
+<p>Let’s get to work!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a new column &quot;review_lowercase&quot; that contains the review texts with all letters being lowercase.</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;review_lowercase&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Reviews&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+
+<span class="c1"># Make a new column &quot;review_nopunct&quot; that contains the review texts with non-words and non-letters removed.</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;review_nopunct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;review_lowercase&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;[^\w\s]&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="c1">#Removes non words and letters</span>
+
+<span class="c1"># Make a new column &quot;review_nostopwords&quot; that contains the review texts with stop words removed.</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+<span class="n">stop_words</span> <span class="o">=</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;review_nostopword&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;review_nopunct&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">))</span>
+
+<span class="c1"># See how the data looks like</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>Title</th>
+      <th>Reviews</th>
+      <th>Ratings</th>
+      <th>review_lowercase</th>
+      <th>review_nopunct</th>
+      <th>review_nostopword</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>Jädelino</td>
+      <td>Chili chocolate flavour to burn you and matcha...</td>
+      <td>9.1</td>
+      <td>chili chocolate flavour to burn you and matcha...</td>
+      <td>chili chocolate flavour to burn you and matcha...</td>
+      <td>chili chocolate flavour burn matcha tea flavou...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Bus Gelato</td>
+      <td>Great Service good coffee and excellent artesa...</td>
+      <td>8.7</td>
+      <td>great service good coffee and excellent artesa...</td>
+      <td>great service good coffee and excellent artesa...</td>
+      <td>great service good coffee excellent artesan ic...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>Helsingin Jäätelötehdas</td>
+      <td>Great ice cream. Comes at a price though</td>
+      <td>8.0</td>
+      <td>great ice cream. comes at a price though</td>
+      <td>great ice cream comes at a price though</td>
+      <td>great ice cream comes price though</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>Helsingin jäätelötehtaan kioski</td>
+      <td>Best ice cream by the biggest scoops I've trie...</td>
+      <td>7.8</td>
+      <td>best ice cream by the biggest scoops i've trie...</td>
+      <td>best ice cream by the biggest scoops ive tried...</td>
+      <td>best ice cream biggest scoops ive tried town</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Fazer Café</td>
+      <td>I have been coming here for many years great c...</td>
+      <td>8.2</td>
+      <td>i have been coming here for many years great c...</td>
+      <td>i have been coming here for many years great c...</td>
+      <td>coming many years great coffee food ice cream</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="making-the-cloud">
+<h2>Making the cloud<a class="headerlink" href="#making-the-cloud" title="Permalink to this headline">¶</a></h2>
+<p>Now we have a cleaned set of review-data to be displayed on our word cloud! To be able to do this, we need to import <a class="reference external" href="https://amueller.github.io/word_cloud/">wordcloud</a>-package and <a class="reference external" href="https://matplotlib.org/">matplotlib</a>-package for plotting. We also need to transform our list of reviews to a single text-string. The classes and functions we need in this sections are:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://amueller.github.io/word_cloud/generated/wordcloud.WordCloud.html"><code class="docutils literal notranslate"><span class="pre">WordCloud</span></code></a></p></li>
+<li><p><a class="reference external" href="https://amueller.github.io/word_cloud/generated/wordcloud.WordCloud.html"><code class="docutils literal notranslate"><span class="pre">generate()</span></code></a></p></li>
+<li><p><a class="reference external" href="https://www.geeksforgeeks.org/python-pandas-series-to_string/"><code class="docutils literal notranslate"><span class="pre">to_string()</span></code></a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.imshow.html"><code class="docutils literal notranslate"><span class="pre">imshow()</span></code></a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">wordcloud</span> <span class="kn">import</span> <span class="n">WordCloud</span>
+
+<span class="c1"># Get the review column from data-table as single string.</span>
+<span class="n">data_string</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;review_nostopword&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span>
+
+<span class="c1"># Create a WordCloud object with a spesified size.</span>
+<span class="n">wordcloud</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">()</span>
+
+<span class="c1"># Generate the words to cloud from our data string</span>
+<span class="n">wordcloud</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">data_string</span><span class="p">)</span>
+
+<span class="c1"># Initialize the figure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span> <span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># Show the word cloud</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">wordcloud</span><span class="p">)</span>
+
+<span class="c1"># Show the figure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/wordcloud_10_0.png" src="../_images/wordcloud_10_0.png" />
+</div>
+</div>
+<p>Great! We see a wordcloud from our reviews now. However, there are still some extra words that perhaps we would not like to include in our cloud such as ‘ice’, ‘cream’, ‘ive’, ‘take’, ‘tried’ and ‘try’. These were not included in the stop words we used. We can include them manually, though.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a new column &quot;review_cleaned&quot; that contains the review texts with additional stop words removed.</span>
+<span class="n">other_stopwords</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ice&#39;</span><span class="p">,</span><span class="s1">&#39;cream&#39;</span><span class="p">,</span><span class="s1">&#39;ive&#39;</span><span class="p">,</span><span class="s1">&#39;take&#39;</span><span class="p">,</span><span class="s1">&#39;tried&#39;</span><span class="p">,</span><span class="s1">&#39;try&#39;</span><span class="p">]</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;review_cleaned&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;review_nostopword&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">other_stopwords</span><span class="p">))</span>
+
+<span class="c1"># See how the data looks like now</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>Title</th>
+      <th>Reviews</th>
+      <th>Ratings</th>
+      <th>review_lowercase</th>
+      <th>review_nopunct</th>
+      <th>review_nostopword</th>
+      <th>review_cleaned</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>Jädelino</td>
+      <td>Chili chocolate flavour to burn you and matcha...</td>
+      <td>9.1</td>
+      <td>chili chocolate flavour to burn you and matcha...</td>
+      <td>chili chocolate flavour to burn you and matcha...</td>
+      <td>chili chocolate flavour burn matcha tea flavou...</td>
+      <td>chili chocolate flavour burn matcha tea flavou...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Bus Gelato</td>
+      <td>Great Service good coffee and excellent artesa...</td>
+      <td>8.7</td>
+      <td>great service good coffee and excellent artesa...</td>
+      <td>great service good coffee and excellent artesa...</td>
+      <td>great service good coffee excellent artesan ic...</td>
+      <td>great service good coffee excellent artesan ic...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>Helsingin Jäätelötehdas</td>
+      <td>Great ice cream. Comes at a price though</td>
+      <td>8.0</td>
+      <td>great ice cream. comes at a price though</td>
+      <td>great ice cream comes at a price though</td>
+      <td>great ice cream comes price though</td>
+      <td>great comes price though</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>Helsingin jäätelötehtaan kioski</td>
+      <td>Best ice cream by the biggest scoops I've trie...</td>
+      <td>7.8</td>
+      <td>best ice cream by the biggest scoops i've trie...</td>
+      <td>best ice cream by the biggest scoops ive tried...</td>
+      <td>best ice cream biggest scoops ive tried town</td>
+      <td>best biggest scoops town</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Fazer Café</td>
+      <td>I have been coming here for many years great c...</td>
+      <td>8.2</td>
+      <td>i have been coming here for many years great c...</td>
+      <td>i have been coming here for many years great c...</td>
+      <td>coming many years great coffee food ice cream</td>
+      <td>coming many years great coffee food</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Remember that we also wanted to display the words in a shape of an ice cream. For this, we need an image of an ice cream to be used as a mask. The area we want our words to be in should be black in the image and the backgbround should be white. Therefore, we need a black icecream on a white background. This kind of image can be found in the file called “icecream.png”. To open the image in python, we first need to use a module called <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html">Image</a> from <a class="reference external" href="https://pillow.readthedocs.io/en/stable/index.html">PIL</a>-package and then transform it into an RGB-array using <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html"><code class="docutils literal notranslate"><span class="pre">array()</span></code></a> from <a class="reference external" href="https://numpy.org/">numpy</a>-package.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="c1"># Open the image file</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;../images/icecream.png&#39;</span><span class="p">)</span>
+
+<span class="c1"># Transform the image into an RGB array</span>
+<span class="n">icecream_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can make the word cloud by a similar manner as before, but adding some additional parameters to the WordCloud-object. Check the cell before for details!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the cleaned review column from data-table as single string.</span>
+<span class="n">data_string</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;review_cleaned&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_string</span><span class="p">()</span>
+
+<span class="c1"># Make a WordCloud-object with specified mask, background color, contour width and contour color</span>
+<span class="n">wordcloud</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span><span class="n">mask</span> <span class="o">=</span> <span class="n">icecream_mask</span><span class="p">,</span> <span class="n">background_color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">contour_width</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">contour_color</span><span class="o">=</span><span class="s1">&#39;violet&#39;</span><span class="p">)</span>
+
+<span class="c1"># Generate the words to cloud from our data string</span>
+<span class="n">wordcloud</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">data_string</span><span class="p">)</span>
+
+<span class="c1"># Plot the figure, optionally ignore the axis.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span> <span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span> <span class="n">facecolor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">wordcloud</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/wordcloud_16_0.png" src="../_images/wordcloud_16_0.png" />
+</div>
+</div>
+<p>That’s it! We’ve created a cool, ice cream -shaped wordcloud from ice cream stall reviews! Now, try to make a word cloud yourself from some other set of words! You can even try to create your own mask for the figure.</p>
+<p>Note! If you want to define the weight of each word as a number instead of it’s frequency in a text, you can generate the cloud using <a class="reference external" href="https://amueller.github.io/word_cloud/generated/wordcloud.WordCloud.html"><code class="docutils literal notranslate"><span class="pre">generate_from_frequencies()</span></code></a>-method. You just need to pass a dictionary as a parameter. For example you could write</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Dog&quot;</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;Cat&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Cow&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;Platypus&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<span class="n">wordcloud</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This would result in a cloud, where the word “Dog” would be the largest and “Platypus” the smallest.</p>
+<p>You can save your image by writing</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;filename.png&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Happy coding!</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./exercises"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="shakespeare.html" title="previous page">Analyzing Shakespeare</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Juha Teuho<br/>
+        
+          <div class="extra_footer">
+            <div>
+<a>Development of this material is made possible by a grant from Finnish National Agency of Education</a></br><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> The material on this website is licenced under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY 4.0.</a> licence.
+</div>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

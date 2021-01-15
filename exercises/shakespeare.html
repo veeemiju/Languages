@@ -1,0 +1,834 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analyzing Shakespeare &#8212; Languages</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://opendata-education.github.io/Languages/intro.html/exercises/shakespeare.html" />
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Wordcloud" href="wordcloud.html" />
+    <link rel="prev" title="Welcome to the world of open data" href="../intro.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://opendata-education.github.io/Languages/intro.html/exercises/shakespeare.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Analyzing Shakespeare" />
+<meta property="og:description" content="Analyzing Shakespeare  This exercise is an introduciton to natural language processing using python. We will be analyzing the most frequently appearing words in" />
+<meta property="og:image"       content="https://opendata-education.github.io/Languages/intro.html/_static/logo.png" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Languages</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to the world of open data
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Exercises
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Analyzing Shakespeare
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="wordcloud.html">
+   Wordcloud
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/exercises/shakespeare.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/opendata-education/Languages"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/opendata-education/Languages/issues/new?title=Issue%20on%20page%20%2Fexercises/shakespeare.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/opendata-education/Languages/main?urlpath=tree/content/exercises/shakespeare.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choosing-the-sample">
+   Choosing the sample
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cleaning-the-sample">
+   Cleaning the sample
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lemmatization">
+   Lemmatization
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analyzing-the-sample-text">
+   Analyzing the sample text
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="analyzing-shakespeare">
+<h1>Analyzing Shakespeare<a class="headerlink" href="#analyzing-shakespeare" title="Permalink to this headline">¶</a></h1>
+<p>This exercise is an introduciton to natural language processing using python. We will be analyzing the most frequently appearing words in one of the books found from <a class="reference external" href="https://www.gutenberg.org/">project Gutenberg</a> — Shakespeare’s Hamlet.</p>
+<p>We will be using a python library called <a class="reference external" href="https://www.nltk.org/">nltk</a> (Natural language toolkit), which has some really useful features when it comes to learning natural language processing. For this exercise, we need to choose a <a class="reference external" href="https://en.wikipedia.org/wiki/Text_corpus">corpus</a>, which is essentially a language resource that consists of a collection of texts. For this exercise, we will use texts from project Gutenberg. Luckily the nltk-library can provide us with a collection of texts from project Gutenberg.</p>
+<div class="section" id="choosing-the-sample">
+<h2>Choosing the sample<a class="headerlink" href="#choosing-the-sample" title="Permalink to this headline">¶</a></h2>
+<p>Let’s begin to explore the world of natural language processing by browsing the project Gutenberg’s book collection available on nltk.corpus -library. For this, we need to import gutenberg-package from the mentioned library.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">gutenberg</span>
+
+<span class="c1"># Print a list of available books from project Gutenberg</span>
+<span class="n">gutenberg</span><span class="o">.</span><span class="n">fileids</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;austen-emma.txt&#39;,
+ &#39;austen-persuasion.txt&#39;,
+ &#39;austen-sense.txt&#39;,
+ &#39;bible-kjv.txt&#39;,
+ &#39;blake-poems.txt&#39;,
+ &#39;bryant-stories.txt&#39;,
+ &#39;burgess-busterbrown.txt&#39;,
+ &#39;carroll-alice.txt&#39;,
+ &#39;chesterton-ball.txt&#39;,
+ &#39;chesterton-brown.txt&#39;,
+ &#39;chesterton-thursday.txt&#39;,
+ &#39;edgeworth-parents.txt&#39;,
+ &#39;melville-moby_dick.txt&#39;,
+ &#39;milton-paradise.txt&#39;,
+ &#39;shakespeare-caesar.txt&#39;,
+ &#39;shakespeare-hamlet.txt&#39;,
+ &#39;shakespeare-macbeth.txt&#39;,
+ &#39;whitman-leaves.txt&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see there are quite a few books in our corpus. Let’s pick ‘shakespeare-hamlet.txt’, for further analysis.</p>
+<p>We can use words()-, sents()- and raw()-methods from the gutenberg package to get the words, sentences and raw text from our book. More information from gutenberg corpus package can be founds <a class="reference external" href="https://www.nltk.org/book/ch02.html#gutenberg-corpus">here</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="n">gutenberg</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;shakespeare-hamlet.txt&#39;</span><span class="p">)</span>  <span class="c1"># Get words </span>
+<span class="n">sentences</span> <span class="o">=</span> <span class="n">gutenberg</span><span class="o">.</span><span class="n">sents</span><span class="p">(</span><span class="s1">&#39;shakespeare-hamlet.txt&#39;</span><span class="p">)</span> <span class="c1"># Get sentences</span>
+<span class="n">sample</span> <span class="o">=</span> <span class="n">gutenberg</span><span class="o">.</span><span class="n">raw</span><span class="p">(</span><span class="s1">&#39;shakespeare-hamlet.txt&#39;</span><span class="p">)</span>  <span class="c1"># Get raw text</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s see what is inside those variables</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Words:&quot;</span><span class="p">,</span> <span class="n">words</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sentences:&quot;</span><span class="p">,</span> <span class="n">sentences</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Words: [&#39;[&#39;, &#39;The&#39;, &#39;Tragedie&#39;, &#39;of&#39;, &#39;Hamlet&#39;, &#39;by&#39;, ...]
+
+Sentences: [[&#39;[&#39;, &#39;The&#39;, &#39;Tragedie&#39;, &#39;of&#39;, &#39;Hamlet&#39;, &#39;by&#39;, &#39;William&#39;, &#39;Shakespeare&#39;, &#39;1599&#39;, &#39;]&#39;], [&#39;Actus&#39;, &#39;Primus&#39;, &#39;.&#39;], ...]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uncomment the following line to read Hamlet</span>
+<span class="c1">#print(sample)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, try playing around with each variables we defined so far.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s check the final 50 words</span>
+<span class="n">words</span><span class="p">[:</span><span class="mi">50</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;[&#39;,
+ &#39;The&#39;,
+ &#39;Tragedie&#39;,
+ &#39;of&#39;,
+ &#39;Hamlet&#39;,
+ &#39;by&#39;,
+ &#39;William&#39;,
+ &#39;Shakespeare&#39;,
+ &#39;1599&#39;,
+ &#39;]&#39;,
+ &#39;Actus&#39;,
+ &#39;Primus&#39;,
+ &#39;.&#39;,
+ &#39;Scoena&#39;,
+ &#39;Prima&#39;,
+ &#39;.&#39;,
+ &#39;Enter&#39;,
+ &#39;Barnardo&#39;,
+ &#39;and&#39;,
+ &#39;Francisco&#39;,
+ &#39;two&#39;,
+ &#39;Centinels&#39;,
+ &#39;.&#39;,
+ &#39;Barnardo&#39;,
+ &#39;.&#39;,
+ &#39;Who&#39;,
+ &quot;&#39;&quot;,
+ &#39;s&#39;,
+ &#39;there&#39;,
+ &#39;?&#39;,
+ &#39;Fran&#39;,
+ &#39;.&#39;,
+ &#39;Nay&#39;,
+ &#39;answer&#39;,
+ &#39;me&#39;,
+ &#39;:&#39;,
+ &#39;Stand&#39;,
+ &#39;&amp;&#39;,
+ &#39;vnfold&#39;,
+ &#39;your&#39;,
+ &#39;selfe&#39;,
+ &#39;Bar&#39;,
+ &#39;.&#39;,
+ &#39;Long&#39;,
+ &#39;liue&#39;,
+ &#39;the&#39;,
+ &#39;King&#39;,
+ &#39;Fran&#39;,
+ &#39;.&#39;,
+ &#39;Barnardo&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># How many words do we have ?</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>37360
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the final 10 sentences</span>
+<span class="n">sentences</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;[&#39;,
+  &#39;The&#39;,
+  &#39;Tragedie&#39;,
+  &#39;of&#39;,
+  &#39;Hamlet&#39;,
+  &#39;by&#39;,
+  &#39;William&#39;,
+  &#39;Shakespeare&#39;,
+  &#39;1599&#39;,
+  &#39;]&#39;],
+ [&#39;Actus&#39;, &#39;Primus&#39;, &#39;.&#39;],
+ [&#39;Scoena&#39;, &#39;Prima&#39;, &#39;.&#39;],
+ [&#39;Enter&#39;, &#39;Barnardo&#39;, &#39;and&#39;, &#39;Francisco&#39;, &#39;two&#39;, &#39;Centinels&#39;, &#39;.&#39;],
+ [&#39;Barnardo&#39;, &#39;.&#39;],
+ [&#39;Who&#39;, &quot;&#39;&quot;, &#39;s&#39;, &#39;there&#39;, &#39;?&#39;],
+ [&#39;Fran&#39;, &#39;.&#39;],
+ [&#39;Nay&#39;, &#39;answer&#39;, &#39;me&#39;, &#39;:&#39;, &#39;Stand&#39;, &#39;&amp;&#39;, &#39;vnfold&#39;, &#39;your&#39;, &#39;selfe&#39;],
+ [&#39;Bar&#39;, &#39;.&#39;],
+ [&#39;Long&#39;, &#39;liue&#39;, &#39;the&#39;, &#39;King&#39;]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s check the 16th sentence (remember count starts from 0).</span>
+<span class="c1"># Feel free to check any sentence. </span>
+<span class="c1"># You can check multiple sentences as well if you specify start and end sentence.</span>
+
+<span class="n">sentences</span><span class="p">[</span><span class="mi">15</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;You&#39;, &#39;come&#39;, &#39;most&#39;, &#39;carefully&#39;, &#39;vpon&#39;, &#39;your&#39;, &#39;houre&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="cleaning-the-sample">
+<h2>Cleaning the sample<a class="headerlink" href="#cleaning-the-sample" title="Permalink to this headline">¶</a></h2>
+<p>To be able to efficiently analyze the texts, we need to clean the text from any extra characters etc. We can observe the appearence of our raw text word by word by tokenizing it. Tokenization is essentially splitting a phrase, sentence, paragraph, or an entire text document into smaller units, such as individual words or terms, sentences, etc. Each of these smaller units are called tokens. We can perform tokenization to words by <a class="reference external" href="https://docs.python.org/3.3/library/stdtypes.html#str.split">splitting</a> it on each whitespace or line break character.</p>
+<p>See the appearence of the text on the cell below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_split</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="c1"># Split the text </span>
+<span class="n">sample_split</span><span class="p">[:</span><span class="mi">50</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;[The&#39;,
+ &#39;Tragedie&#39;,
+ &#39;of&#39;,
+ &#39;Hamlet&#39;,
+ &#39;by&#39;,
+ &#39;William&#39;,
+ &#39;Shakespeare&#39;,
+ &#39;1599]&#39;,
+ &#39;Actus&#39;,
+ &#39;Primus.&#39;,
+ &#39;Scoena&#39;,
+ &#39;Prima.&#39;,
+ &#39;Enter&#39;,
+ &#39;Barnardo&#39;,
+ &#39;and&#39;,
+ &#39;Francisco&#39;,
+ &#39;two&#39;,
+ &#39;Centinels.&#39;,
+ &#39;Barnardo.&#39;,
+ &quot;Who&#39;s&quot;,
+ &#39;there?&#39;,
+ &#39;Fran.&#39;,
+ &#39;Nay&#39;,
+ &#39;answer&#39;,
+ &#39;me:&#39;,
+ &#39;Stand&#39;,
+ &#39;&amp;&#39;,
+ &#39;vnfold&#39;,
+ &#39;your&#39;,
+ &#39;selfe&#39;,
+ &#39;Bar.&#39;,
+ &#39;Long&#39;,
+ &#39;liue&#39;,
+ &#39;the&#39;,
+ &#39;King&#39;,
+ &#39;Fran.&#39;,
+ &#39;Barnardo?&#39;,
+ &#39;Bar.&#39;,
+ &#39;He&#39;,
+ &#39;Fran.&#39;,
+ &#39;You&#39;,
+ &#39;come&#39;,
+ &#39;most&#39;,
+ &#39;carefully&#39;,
+ &#39;vpon&#39;,
+ &#39;your&#39;,
+ &#39;houre&#39;,
+ &#39;Bar.&#39;,
+ &quot;&#39;Tis&quot;,
+ &#39;now&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see, there are still quite a few unnecessary characters, such as square brackets or dots. Also, we would like to make all characters lowercase to be able to analyze them more easily.</p>
+<p>Manipulating the sample is efficient with a python library called <a class="reference external" href="https://docs.python.org/3/library/re.html">regex</a>. See a detailed explanation for cleaning the sample text using regex on the next code cell. In this exercise we will use <a class="reference external" href="https://docs.python.org/3/library/re.html#re.sub"><code class="docutils literal notranslate"><span class="pre">sub()</span></code></a>-function from regex-library to replace characters in a string. For examples using regex, see <a class="reference external" href="https://www.w3schools.com/python/python_regex.asp">this</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import re-library (regex)</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="c1"># Initialize an empty list for cleaned words</span>
+<span class="n">sample_cleaned</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Go through each word one by one</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">sample_split</span><span class="p">:</span> 
+    
+    <span class="c1"># Make the word lowercase</span>
+    <span class="n">word_lowered</span> <span class="o">=</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> 
+    
+    <span class="c1"># This expression will replace all other characters except letters from a-z and numbers with an empty string.</span>
+    <span class="n">word_cleaned</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^a-z0-9]+&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">word_lowered</span><span class="p">)</span> 
+
+    <span class="c1"># Let&#39;s make sure that we do not add any empty word strings to our cleaned sample</span>
+    <span class="k">if</span> <span class="n">word_cleaned</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span> 
+        
+        <span class="c1"># Add the cleaned word to cleaned sample list</span>
+        <span class="n">sample_cleaned</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word_cleaned</span><span class="p">)</span>
+
+<span class="c1"># Print the total number of words and the first 20 words</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sample_cleaned</span><span class="p">))</span>
+<span class="n">sample_cleaned</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">50</span><span class="p">]</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>29579
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;the&#39;,
+ &#39;tragedie&#39;,
+ &#39;of&#39;,
+ &#39;hamlet&#39;,
+ &#39;by&#39;,
+ &#39;william&#39;,
+ &#39;shakespeare&#39;,
+ &#39;1599&#39;,
+ &#39;actus&#39;,
+ &#39;primus&#39;,
+ &#39;scoena&#39;,
+ &#39;prima&#39;,
+ &#39;enter&#39;,
+ &#39;barnardo&#39;,
+ &#39;and&#39;,
+ &#39;francisco&#39;,
+ &#39;two&#39;,
+ &#39;centinels&#39;,
+ &#39;barnardo&#39;,
+ &#39;whos&#39;,
+ &#39;there&#39;,
+ &#39;fran&#39;,
+ &#39;nay&#39;,
+ &#39;answer&#39;,
+ &#39;me&#39;,
+ &#39;stand&#39;,
+ &#39;vnfold&#39;,
+ &#39;your&#39;,
+ &#39;selfe&#39;,
+ &#39;bar&#39;,
+ &#39;long&#39;,
+ &#39;liue&#39;,
+ &#39;the&#39;,
+ &#39;king&#39;,
+ &#39;fran&#39;,
+ &#39;barnardo&#39;,
+ &#39;bar&#39;,
+ &#39;he&#39;,
+ &#39;fran&#39;,
+ &#39;you&#39;,
+ &#39;come&#39;,
+ &#39;most&#39;,
+ &#39;carefully&#39;,
+ &#39;vpon&#39;,
+ &#39;your&#39;,
+ &#39;houre&#39;,
+ &#39;bar&#39;,
+ &#39;tis&#39;,
+ &#39;now&#39;,
+ &#39;strook&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, the list of words start to look better. However, typically we are not interseted in the most common words in the language and we’d like to filter those out from the list. These kind of words are called <a class="reference external" href="https://en.wikipedia.org/wiki/Stop_word">stop words</a>. We could either list the stop words ourselves but we can also use the nltk-library to define the most common stop words in English for us.</p>
+<p>Let’s take a look what kind of stop words are in the nltk.corpus-package.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
+
+<span class="n">stop_words</span> <span class="o">=</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stop_words</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;i&#39;, &#39;me&#39;, &#39;my&#39;, &#39;myself&#39;, &#39;we&#39;, &#39;our&#39;, &#39;ours&#39;, &#39;ourselves&#39;, &#39;you&#39;, &quot;you&#39;re&quot;, &quot;you&#39;ve&quot;, &quot;you&#39;ll&quot;, &quot;you&#39;d&quot;, &#39;your&#39;, &#39;yours&#39;, &#39;yourself&#39;, &#39;yourselves&#39;, &#39;he&#39;, &#39;him&#39;, &#39;his&#39;, &#39;himself&#39;, &#39;she&#39;, &quot;she&#39;s&quot;, &#39;her&#39;, &#39;hers&#39;, &#39;herself&#39;, &#39;it&#39;, &quot;it&#39;s&quot;, &#39;its&#39;, &#39;itself&#39;, &#39;they&#39;, &#39;them&#39;, &#39;their&#39;, &#39;theirs&#39;, &#39;themselves&#39;, &#39;what&#39;, &#39;which&#39;, &#39;who&#39;, &#39;whom&#39;, &#39;this&#39;, &#39;that&#39;, &quot;that&#39;ll&quot;, &#39;these&#39;, &#39;those&#39;, &#39;am&#39;, &#39;is&#39;, &#39;are&#39;, &#39;was&#39;, &#39;were&#39;, &#39;be&#39;, &#39;been&#39;, &#39;being&#39;, &#39;have&#39;, &#39;has&#39;, &#39;had&#39;, &#39;having&#39;, &#39;do&#39;, &#39;does&#39;, &#39;did&#39;, &#39;doing&#39;, &#39;a&#39;, &#39;an&#39;, &#39;the&#39;, &#39;and&#39;, &#39;but&#39;, &#39;if&#39;, &#39;or&#39;, &#39;because&#39;, &#39;as&#39;, &#39;until&#39;, &#39;while&#39;, &#39;of&#39;, &#39;at&#39;, &#39;by&#39;, &#39;for&#39;, &#39;with&#39;, &#39;about&#39;, &#39;against&#39;, &#39;between&#39;, &#39;into&#39;, &#39;through&#39;, &#39;during&#39;, &#39;before&#39;, &#39;after&#39;, &#39;above&#39;, &#39;below&#39;, &#39;to&#39;, &#39;from&#39;, &#39;up&#39;, &#39;down&#39;, &#39;in&#39;, &#39;out&#39;, &#39;on&#39;, &#39;off&#39;, &#39;over&#39;, &#39;under&#39;, &#39;again&#39;, &#39;further&#39;, &#39;then&#39;, &#39;once&#39;, &#39;here&#39;, &#39;there&#39;, &#39;when&#39;, &#39;where&#39;, &#39;why&#39;, &#39;how&#39;, &#39;all&#39;, &#39;any&#39;, &#39;both&#39;, &#39;each&#39;, &#39;few&#39;, &#39;more&#39;, &#39;most&#39;, &#39;other&#39;, &#39;some&#39;, &#39;such&#39;, &#39;no&#39;, &#39;nor&#39;, &#39;not&#39;, &#39;only&#39;, &#39;own&#39;, &#39;same&#39;, &#39;so&#39;, &#39;than&#39;, &#39;too&#39;, &#39;very&#39;, &#39;s&#39;, &#39;t&#39;, &#39;can&#39;, &#39;will&#39;, &#39;just&#39;, &#39;don&#39;, &quot;don&#39;t&quot;, &#39;should&#39;, &quot;should&#39;ve&quot;, &#39;now&#39;, &#39;d&#39;, &#39;ll&#39;, &#39;m&#39;, &#39;o&#39;, &#39;re&#39;, &#39;ve&#39;, &#39;y&#39;, &#39;ain&#39;, &#39;aren&#39;, &quot;aren&#39;t&quot;, &#39;couldn&#39;, &quot;couldn&#39;t&quot;, &#39;didn&#39;, &quot;didn&#39;t&quot;, &#39;doesn&#39;, &quot;doesn&#39;t&quot;, &#39;hadn&#39;, &quot;hadn&#39;t&quot;, &#39;hasn&#39;, &quot;hasn&#39;t&quot;, &#39;haven&#39;, &quot;haven&#39;t&quot;, &#39;isn&#39;, &quot;isn&#39;t&quot;, &#39;ma&#39;, &#39;mightn&#39;, &quot;mightn&#39;t&quot;, &#39;mustn&#39;, &quot;mustn&#39;t&quot;, &#39;needn&#39;, &quot;needn&#39;t&quot;, &#39;shan&#39;, &quot;shan&#39;t&quot;, &#39;shouldn&#39;, &quot;shouldn&#39;t&quot;, &#39;wasn&#39;, &quot;wasn&#39;t&quot;, &#39;weren&#39;, &quot;weren&#39;t&quot;, &#39;won&#39;, &quot;won&#39;t&quot;, &#39;wouldn&#39;, &quot;wouldn&#39;t&quot;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see these are pretty common words that appear in English language. Let’s filter these out from our sample.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define an empty list which will be populated with words that are not stop words.</span>
+<span class="n">sample_nostopwords</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Go through each word in our cleaned sample</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">sample_cleaned</span><span class="p">:</span>
+    
+    <span class="c1"># Only perform the following code if the word is not found in stop_words list.</span>
+    <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">:</span>
+        
+        <span class="c1"># Add the word to the sample_nostopwords-list.</span>
+        <span class="n">sample_nostopwords</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+<span class="n">sample_nostopwords</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span>
+<span class="n">myset</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">sample_nostopwords</span><span class="p">)</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">myset</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4694
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we have a list of words in our sample text that are cleaned and the stop words are removed. Check how many words are left in our sample_nostopwords -list to see how many words were removed in the previous cell!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the length of sample_nostopwords -list.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="lemmatization">
+<h2>Lemmatization<a class="headerlink" href="#lemmatization" title="Permalink to this headline">¶</a></h2>
+<p>According to <a class="reference external" href="https://en.wikipedia.org/wiki/Lemmatisation">Wikipedia</a>, lemmatisation in linguistics is the process of grouping together the inflected forms of a word so they can be analysed as a single item, identified by the word’s lemma, or dictionary form.</p>
+<p>Let’s do lemmatization for our sample text to continue with our analysis. For this, we can use <a class="reference external" href="http://www.nltk.org/api/nltk.stem.html#nltk.stem.wordnet.WordNetLemmatizer"><code class="docutils literal notranslate"><span class="pre">WordNetLemmatizer</span></code></a> from the nltk.stem -package. See how to use it in the following cell!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="kn">import</span> <span class="n">WordNetLemmatizer</span>
+
+<span class="c1"># Define an empty list which will be populated with our lemmatized set of words</span>
+<span class="n">sample_lemmatized</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Initialize our lemmatizer object. It can be later referred to as wnl.</span>
+<span class="n">wnl</span> <span class="o">=</span> <span class="n">WordNetLemmatizer</span><span class="p">()</span>
+
+<span class="c1"># Go through each word in our sample text</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">sample_nostopwords</span><span class="p">:</span>
+    
+    <span class="c1"># Lemmatize the word</span>
+    <span class="n">word_lemmatized</span> <span class="o">=</span> <span class="n">wnl</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+    
+    <span class="c1"># Add the lemmatized word to the list</span>
+    <span class="n">sample_lemmatized</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word_lemmatized</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="analyzing-the-sample-text">
+<h2>Analyzing the sample text<a class="headerlink" href="#analyzing-the-sample-text" title="Permalink to this headline">¶</a></h2>
+<p>Finally after cleaning and lemmatizing the sample, it is in the desired state. After the lemmatization, our list of words should contain multiple occurences of the same words. Next, we can analyze the sample further to see which words appear most frequently. For this, we will use <a class="reference external" href="http://www.nltk.org/api/nltk.html#nltk.probability.FreqDist">FreqDist()</a>-class from nltk.probability -package.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.probability</span> <span class="kn">import</span> <span class="n">FreqDist</span>
+
+<span class="c1"># Make a frequency distribution object from our lemmatized words.</span>
+<span class="n">freq_dist</span> <span class="o">=</span> <span class="n">FreqDist</span><span class="p">(</span><span class="n">sample_lemmatized</span><span class="p">)</span>
+
+<span class="c1"># Print information from the frequency distribution</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">freq_dist</span><span class="p">)</span>
+
+<span class="c1"># By using the &quot;most_common&quot;-method of the distribution object, we can print the 20 most common words</span>
+<span class="c1"># Now we can understand Shakespeare&#39;s vocabulary set ;)</span>
+<span class="n">freq_dist</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;FreqDist with 4423 samples and 15880 outcomes&gt;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;ham&#39;, 337),
+ (&#39;lord&#39;, 217),
+ (&#39;king&#39;, 180),
+ (&#39;haue&#39;, 175),
+ (&#39;come&#39;, 127),
+ (&#39;hamlet&#39;, 107),
+ (&#39;let&#39;, 107),
+ (&#39;shall&#39;, 107),
+ (&#39;thou&#39;, 105),
+ (&#39;good&#39;, 98),
+ (&#39;hor&#39;, 95),
+ (&#39;thy&#39;, 90),
+ (&#39;enter&#39;, 85),
+ (&#39;oh&#39;, 81),
+ (&#39;like&#39;, 80),
+ (&#39;well&#39;, 70),
+ (&#39;make&#39;, 70),
+ (&#39;father&#39;, 70),
+ (&#39;ti&#39;, 69),
+ (&#39;know&#39;, 69)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We could also plot the distribution using <code class="docutils literal notranslate"><span class="pre">plot()</span></code>-method of the frequency distribution object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the frequency distribution of the 20 most common words</span>
+<span class="n">freq_dist</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/shakespeare_32_0.png" src="../_images/shakespeare_32_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fbe8fff21f0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Another interesting thing is make a lexical dispersion plot that plots the occurences of a word and how many words from the beginning it appears. To make the plot, first we need to turn our list of words into <a class="reference external" href="https://www.nltk.org/api/nltk.html#nltk.text.Text">nltk.Text</a>-object and then use <a class="reference external" href="https://www.nltk.org/api/nltk.html#nltk.text.Text.dispersion_plot"><code class="docutils literal notranslate"><span class="pre">dispersion_plot()</span></code></a>-method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nltk</span> <span class="kn">import</span> <span class="n">Text</span>
+
+<span class="c1"># Make a Text-object from our sample</span>
+<span class="n">disp_sample</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="n">sample_lemmatized</span><span class="p">)</span>
+
+<span class="c1"># Make the dispersion plot with a few words.</span>
+<span class="n">disp_sample</span><span class="o">.</span><span class="n">dispersion_plot</span><span class="p">([</span><span class="s1">&#39;ham&#39;</span><span class="p">,</span><span class="s1">&#39;king&#39;</span><span class="p">,</span><span class="s1">&#39;shall&#39;</span><span class="p">,</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span><span class="s1">&#39;fran&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/shakespeare_34_0.png" src="../_images/shakespeare_34_0.png" />
+</div>
+</div>
+<p>That’s it! We’ve managed to find out the most commonly used words by Shakespeare in Hamlet and learned how to check that how the words are distributed on the sample.</p>
+<p>Can you figure out why the word “ham” appears to be the most frequently used word when stop words are removed? What are “bar” and “Fran” on the dispersion plot and why they appear only at the beginning of the book?</p>
+<p>Try to find out the most common words for some other book yourself (from project Gutenberg, for example)!</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./exercises"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">Welcome to the world of open data</a>
+    <a class='right-next' id="next-link" href="wordcloud.html" title="next page">Wordcloud</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Juha Teuho<br/>
+        
+          <div class="extra_footer">
+            <div>
+<a>Development of this material is made possible by a grant from Finnish National Agency of Education</a></br><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> The material on this website is licenced under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY 4.0.</a> licence.
+</div>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
