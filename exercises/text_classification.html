@@ -1,0 +1,528 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text classification &#8212; Languages</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://opendata-education.github.io/Languages/intro.html/exercises/text_classification.html" />
+    <link rel="shortcut icon" href="../_static/logo.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Wordcloud" href="wordcloud.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://opendata-education.github.io/Languages/intro.html/exercises/text_classification.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Text classification" />
+<meta property="og:description" content="Text classification  In this exercise we will create a simple text classification system. We want our system to be able to determine if a sentence has a positiv" />
+<meta property="og:image"       content="https://opendata-education.github.io/Languages/intro.html/_static/logo.png" />
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Languages</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../intro.html">
+   Welcome to the world of open data
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Exercises
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="shakespeare.html">
+   Analyzing Shakespeare
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="wordcloud.html">
+   Wordcloud
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Text classification
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/exercises/text_classification.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/opendata-education/Languages"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/opendata-education/Languages/issues/new?title=Issue%20on%20page%20%2Fexercises/text_classification.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/opendata-education/Languages/main?urlpath=tree/content/exercises/text_classification.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-and-training-the-classifier">
+   Creating and training the classifier
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testing-the-classifier">
+   Testing the classifier
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#playing-with-probabilities">
+   Playing with probabilities
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="text-classification">
+<h1>Text classification<a class="headerlink" href="#text-classification" title="Permalink to this headline">¶</a></h1>
+<p>In this exercise we will create a simple text classification system. We want our system to be able to determine if a sentence has a positive or a negative tone. For example, a sentence “I love this sandwich.” would be a positive sentence whereas “I do not like this restaurant” is an examples of a negative sentence.</p>
+<p>The classification in this case will be based on <a class="reference external" href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">Naive Bayes classifier</a>. The idea of the classification is the following:</p>
+<ol class="simple">
+<li><p>We create a database of sentences that are known to be either positive or negative.</p></li>
+<li><p>We create a classifier and train it using the data from our database.</p></li>
+<li><p>We define the sentence or sentences we want to evaluate.</p></li>
+<li><p>Based on individual words appearing in either the positive category or the negative category, the sentence is evaluated.</p></li>
+</ol>
+<p>Let’s say, for example, that we have a database like in the table below:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p>Sentence</p></th>
+<th class="text-align:center head"><p>Category</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p>I love this sandwich.</p></td>
+<td class="text-align:center"><p>pos</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>this is an amazing place!</p></td>
+<td class="text-align:center"><p>pos</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>I feel very good about these beers.</p></td>
+<td class="text-align:center"><p>pos</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>this is my best work.</p></td>
+<td class="text-align:center"><p>pos</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>what an awesome view</p></td>
+<td class="text-align:center"><p>pos</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>I do not like this restaurant</p></td>
+<td class="text-align:center"><p>neg</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>I am tired of this stuff.</p></td>
+<td class="text-align:center"><p>neg</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>I can’t deal with this”</p></td>
+<td class="text-align:center"><p>neg</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:left"><p>he is my sworn enemy!</p></td>
+<td class="text-align:center"><p>neg</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:left"><p>my boss is horrible.</p></td>
+<td class="text-align:center"><p>neg</p></td>
+</tr>
+</tbody>
+</table>
+<p>This would be the training data and the sentences we would like to evaluate would be compared to these sentences. The more training data there is, the more accurate the results will be.</p>
+<p>If you’re interested in the mathematics behind the algoritm, <a class="reference external" href="https://medium.com/syncedreview/applying-multinomial-naive-bayes-to-nlp-problems-a-practical-explanation-4f5271768ebf">read this</a>.</p>
+<div class="section" id="creating-and-training-the-classifier">
+<h2>Creating and training the classifier<a class="headerlink" href="#creating-and-training-the-classifier" title="Permalink to this headline">¶</a></h2>
+<p>For this exercise, we will use a library called <a class="reference external" href="https://textblob.readthedocs.io/en/dev/index.html">textblob</a> that contains practical tools for common natural language processing tasks. Textblob-library has a number of different classifiers to choose from. We will be using the <a class="reference external" href="https://textblob.readthedocs.io/en/dev/api_reference.html#textblob.classifiers.NaiveBayesClassifier">Naive Bayes Classifier</a>.</p>
+<p>We will define a set of training data, which contains sentences and their category (either ‘pos’ or ‘neg’) and feed the training data to the classifier.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import the classifier</span>
+<span class="kn">from</span> <span class="nn">textblob.classifiers</span> <span class="kn">import</span> <span class="n">NaiveBayesClassifier</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define training data</span>
+<span class="n">train</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;I love this sandwich.&#39;</span><span class="p">,</span> <span class="s1">&#39;pos&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;this is an amazing place!&#39;</span><span class="p">,</span> <span class="s1">&#39;pos&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;I feel very good about these beers.&#39;</span><span class="p">,</span> <span class="s1">&#39;pos&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;this is my best work.&#39;</span><span class="p">,</span> <span class="s1">&#39;pos&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;what an awesome view&#39;</span><span class="p">,</span> <span class="s1">&#39;pos&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;I do not like this restaurant&#39;</span><span class="p">,</span> <span class="s1">&#39;neg&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;I am tired of this stuff.&#39;</span><span class="p">,</span> <span class="s1">&#39;neg&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;I can&#39;t deal with this&quot;</span><span class="p">,</span> <span class="s1">&#39;neg&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;he is my sworn enemy!&#39;</span><span class="p">,</span> <span class="s1">&#39;neg&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;my boss is horrible.&#39;</span><span class="p">,</span> <span class="s1">&#39;neg&#39;</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="c1"># Create the classifier and feed the training data.</span>
+<span class="n">cl</span> <span class="o">=</span> <span class="n">NaiveBayesClassifier</span><span class="p">(</span><span class="n">train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="testing-the-classifier">
+<h2>Testing the classifier<a class="headerlink" href="#testing-the-classifier" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have created and trained the classifier, we can test how well it performs.
+Let’s write couple of sentences and test them using the <a class="reference external" href="https://textblob.readthedocs.io/en/dev/api_reference.html#textblob.classifiers.NaiveBayesClassifier.classify"><code class="docutils literal notranslate"><span class="pre">classify()</span></code></a>-method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a test sentence and classify it</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="s2">&quot;This is an amazing library!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;pos&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>It looks like the classifier works! At least in this case. Try another sentence yourself! Test for example, if the classifier can handle a negative sentence properly.</p>
+<p>We can also define a larger set of test sentences and see how accurately the classifier can classify those sentences. For this we need can use <a class="reference external" href="https://textblob.readthedocs.io/en/dev/api_reference.html#textblob.classifiers.NaiveBayesClassifier.accuracy"><code class="docutils literal notranslate"><span class="pre">accuracy()</span></code></a>-method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define test data similarly as the training data before</span>
+<span class="n">test</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;the beer was good.&#39;</span><span class="p">,</span> <span class="s1">&#39;pos&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;I do not enjoy my job&#39;</span><span class="p">,</span> <span class="s1">&#39;neg&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;I ain&#39;t feeling dandy today.&quot;</span><span class="p">,</span> <span class="s1">&#39;neg&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;I feel amazing!&#39;</span><span class="p">,</span> <span class="s1">&#39;pos&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Gary is a friend of mine.&#39;</span><span class="p">,</span> <span class="s1">&#39;pos&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;I can&#39;t believe I&#39;m doing this.&quot;</span><span class="p">,</span> <span class="s1">&#39;neg&#39;</span><span class="p">)</span>
+ <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test the accuracy of the classifier using test data.</span>
+<span class="n">cl</span><span class="o">.</span><span class="n">accuracy</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8333333333333334
+</pre></div>
+</div>
+</div>
+</div>
+<p>It looks like the classifier got 83% correct. Not too bad considering our small set of training data. We can also train our classifier more and see if we get different results. The classifier can further be trained using the <a class="reference external" href="https://textblob.readthedocs.io/en/dev/api_reference.html#textblob.classifiers.NaiveBayesClassifier.update"><code class="docutils literal notranslate"><span class="pre">update()</span></code></a>-method. Figure out how it works and make more train the classifier more! You can also check if the accuracy has improved after the training.</p>
+</div>
+<div class="section" id="playing-with-probabilities">
+<h2>Playing with probabilities<a class="headerlink" href="#playing-with-probabilities" title="Permalink to this headline">¶</a></h2>
+<p>We can dig deeper into the probabilities of a sentence being positive or negative by using <a class="reference external" href="https://textblob.readthedocs.io/en/dev/api_reference.html#textblob.classifiers.NaiveBayesClassifier.prob_classify"><code class="docutils literal notranslate"><span class="pre">prob_classify()</span></code></a>-method. Let’s try it out!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a probability distribution from a sentence</span>
+<span class="n">prob_dist</span> <span class="o">=</span> <span class="n">cl</span><span class="o">.</span><span class="n">prob_classify</span><span class="p">(</span><span class="s2">&quot;This one&#39;s a doozy.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the probability of the sentence being positive</span>
+<span class="n">prob_dist</span><span class="o">.</span><span class="n">prob</span><span class="p">(</span><span class="s2">&quot;pos&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6311475409836074
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the probability of the sentence being negative</span>
+<span class="n">prob_dist</span><span class="o">.</span><span class="n">prob</span><span class="p">(</span><span class="s2">&quot;neg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.36885245901639313
+</pre></div>
+</div>
+</div>
+</div>
+<p>Which category would be selected for the sentence ‘This one’s a doozy.’?</p>
+<p>Text classification is also possible for longer texts. See the example below!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s define a larger text blob and use our classifier on it.</span>
+<span class="kn">from</span> <span class="nn">textblob</span> <span class="kn">import</span> <span class="n">TextBlob</span>
+<span class="n">blob</span> <span class="o">=</span> <span class="n">TextBlob</span><span class="p">(</span><span class="s2">&quot;The beer is good. But the hangover is horrible.&quot;</span><span class="p">,</span> <span class="n">classifier</span><span class="o">=</span><span class="n">cl</span><span class="p">)</span>
+<span class="n">blob</span><span class="o">.</span><span class="n">classify</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;pos&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We can also print all the sentences in the blob and classify them separately.</span>
+<span class="k">for</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="n">blob</span><span class="o">.</span><span class="n">sentences</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sentence</span><span class="o">.</span><span class="n">classify</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The beer is good.
+pos
+
+But the hangover is horrible.
+neg
+</pre></div>
+</div>
+</div>
+</div>
+<p>Are you interested in learning more about Naive Bayes classification? Try this tutorial:</p>
+<p><a class="reference external" href="https://www.datacamp.com/community/tutorials/naive-bayes-scikit-learn">https://www.datacamp.com/community/tutorials/naive-bayes-scikit-learn</a></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./exercises"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="wordcloud.html" title="previous page">Wordcloud</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Juha Teuho & Prashant Mahato<br/>
+        
+          <div class="extra_footer">
+            <div>
+<a>Development of this material is made possible by a grant from Finnish National Agency of Education</a></br><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> The material on this website is licenced under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-BY 4.0.</a> licence.
+</div>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
