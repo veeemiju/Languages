@@ -5,4 +5,5 @@
   chapters:
   - file: exercises/shakespeare
   - file: exercises/wordcloud
+  - file: exercises/text_classification
 

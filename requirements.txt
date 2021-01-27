@@ -5,3 +5,4 @@ ghp-import
 nltk
 pandas
 wordcloud
+textblob
