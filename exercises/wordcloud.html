@@ -4,7 +4,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>Wordcloud &#8212; Languages</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -103,7 +104,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Exercises
  </span>
@@ -255,7 +256,7 @@
         
               <div>
                 
-  <div class="section" id="wordcloud">
+  <section id="wordcloud">
 <h1>Wordcloud<a class="headerlink" href="#wordcloud" title="Permalink to this headline">¶</a></h1>
 <p>Word cloud is a visual representation of text data that can be shown for example in a shape of a cloud. The words in the cloud are typically represented in different colors and font-sizes. See an example of a word cloud below!</p>
 <p><img alt="cloud" src="../_images/opendata-cloud.png" /></p>
@@ -266,7 +267,7 @@
 <li><p>Display the data in a word cloud that has a form of an ice cream</p></li>
 </ul>
 <p>Let’s get to work!</p>
-<div class="section" id="importing-the-review-data">
+<section id="importing-the-review-data">
 <h2>Importing the review data<a class="headerlink" href="#importing-the-review-data" title="Permalink to this headline">¶</a></h2>
 <p>We begin by importing the data we need. The data is available on a csv-file called “icecream_stall_reviews.csv”. It is a collection of ice cream stall reviews that have been <a class="reference external" href="https://en.wikipedia.org/wiki/Web_scraping">scraped</a> from <a class="reference external" href="https://foursquare.com/explore?mode=url&amp;near=Helsinki&amp;nearGeoId=72057594038586161&amp;q=Ice%20cream">foursquare.com</a>. To read it, we can use a python-library called <a class="reference external" href="https://pandas.pydata.org/">pandas</a>. The function <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">read_csv()</span></code></span> can do the job for us if we know the path to the data file. The file is in the same directory as this notebook-file so we can use the name of the file as it is.</p>
 <div class="cell docutils container">
@@ -281,73 +282,9 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Unnamed: 0</th>
-      <th>Title</th>
-      <th>Reviews</th>
-      <th>Ratings</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0</td>
-      <td>Jädelino</td>
-      <td>Chili chocolate flavour to burn you and matcha...</td>
-      <td>9.1</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1</td>
-      <td>Bus Gelato</td>
-      <td>Great Service good coffee and excellent artesa...</td>
-      <td>8.7</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2</td>
-      <td>Helsingin Jäätelötehdas</td>
-      <td>Great ice cream. Comes at a price though</td>
-      <td>8.0</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>3</td>
-      <td>Helsingin jäätelötehtaan kioski</td>
-      <td>Best ice cream by the biggest scoops I've trie...</td>
-      <td>7.8</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>4</td>
-      <td>Fazer Café</td>
-      <td>I have been coming here for many years great c...</td>
-      <td>8.2</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
-</div>
-<div class="section" id="cleaning-the-data">
+</section>
+<section id="cleaning-the-data">
 <h2>Cleaning the data<a class="headerlink" href="#cleaning-the-data" title="Permalink to this headline">¶</a></h2>
 <p>It seems that our data consists of the name of the stall, review-text and a rating number. Our next task is to extract the review-texts from the table, tokenize them and then clean them. We have done similar task already on a previous exercise where we studied Shakespeare’s Hamlet. Let’s do the cleaning this time using some efficient <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">list comprehensions</a> and <a class="reference external" href="https://docs.python.org/3/reference/expressions.html#lambda">lambda</a>-expressions. Don’t worry if these look too overwhelming, these are just a way to do things quicker.</p>
 <p>Let’s get to work!</p>
@@ -360,6 +297,8 @@
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;review_nopunct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;review_lowercase&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;[^\w\s]&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="c1">#Removes non words and letters</span>
 
 <span class="c1"># Make a new column &quot;review_nostopwords&quot; that contains the review texts with stop words removed.</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
 <span class="n">stop_words</span> <span class="o">=</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;review_nostopword&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;review_nopunct&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">()</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stop_words</span><span class="p">))</span>
@@ -369,91 +308,9 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Unnamed: 0</th>
-      <th>Title</th>
-      <th>Reviews</th>
-      <th>Ratings</th>
-      <th>review_lowercase</th>
-      <th>review_nopunct</th>
-      <th>review_nostopword</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0</td>
-      <td>Jädelino</td>
-      <td>Chili chocolate flavour to burn you and matcha...</td>
-      <td>9.1</td>
-      <td>chili chocolate flavour to burn you and matcha...</td>
-      <td>chili chocolate flavour to burn you and matcha...</td>
-      <td>chili chocolate flavour burn matcha tea flavou...</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1</td>
-      <td>Bus Gelato</td>
-      <td>Great Service good coffee and excellent artesa...</td>
-      <td>8.7</td>
-      <td>great service good coffee and excellent artesa...</td>
-      <td>great service good coffee and excellent artesa...</td>
-      <td>great service good coffee excellent artesan ic...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2</td>
-      <td>Helsingin Jäätelötehdas</td>
-      <td>Great ice cream. Comes at a price though</td>
-      <td>8.0</td>
-      <td>great ice cream. comes at a price though</td>
-      <td>great ice cream comes at a price though</td>
-      <td>great ice cream comes price though</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>3</td>
-      <td>Helsingin jäätelötehtaan kioski</td>
-      <td>Best ice cream by the biggest scoops I've trie...</td>
-      <td>7.8</td>
-      <td>best ice cream by the biggest scoops i've trie...</td>
-      <td>best ice cream by the biggest scoops ive tried...</td>
-      <td>best ice cream biggest scoops ive tried town</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>4</td>
-      <td>Fazer Café</td>
-      <td>I have been coming here for many years great c...</td>
-      <td>8.2</td>
-      <td>i have been coming here for many years great c...</td>
-      <td>i have been coming here for many years great c...</td>
-      <td>coming many years great coffee food ice cream</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
-</div>
-<div class="section" id="making-the-cloud">
+</section>
+<section id="making-the-cloud">
 <h2>Making the cloud<a class="headerlink" href="#making-the-cloud" title="Permalink to this headline">¶</a></h2>
 <p>Now we have a cleaned set of review-data to be displayed on our word cloud! To be able to do this, we need to import <a class="reference external" href="https://amueller.github.io/word_cloud/">wordcloud</a>-package and <a class="reference external" href="https://matplotlib.org/">matplotlib</a>-package for plotting. We also need to transform our list of reviews to a single text-string. The classes and functions we need in this sections are:</p>
 <ul class="simple">
@@ -487,9 +344,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/wordcloud_10_0.png" src="../_images/wordcloud_10_0.png" />
-</div>
 </div>
 <p>Great! We see a wordcloud from our reviews now. However, there are still some extra words that perhaps we would not like to include in our cloud such as ‘ice’, ‘cream’, ‘ive’, ‘take’, ‘tried’ and ‘try’. These were not included in the stop words we used. We can include them manually, though.</p>
 <div class="cell docutils container">
@@ -503,94 +357,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Unnamed: 0</th>
-      <th>Title</th>
-      <th>Reviews</th>
-      <th>Ratings</th>
-      <th>review_lowercase</th>
-      <th>review_nopunct</th>
-      <th>review_nostopword</th>
-      <th>review_cleaned</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0</td>
-      <td>Jädelino</td>
-      <td>Chili chocolate flavour to burn you and matcha...</td>
-      <td>9.1</td>
-      <td>chili chocolate flavour to burn you and matcha...</td>
-      <td>chili chocolate flavour to burn you and matcha...</td>
-      <td>chili chocolate flavour burn matcha tea flavou...</td>
-      <td>chili chocolate flavour burn matcha tea flavou...</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1</td>
-      <td>Bus Gelato</td>
-      <td>Great Service good coffee and excellent artesa...</td>
-      <td>8.7</td>
-      <td>great service good coffee and excellent artesa...</td>
-      <td>great service good coffee and excellent artesa...</td>
-      <td>great service good coffee excellent artesan ic...</td>
-      <td>great service good coffee excellent artesan ic...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2</td>
-      <td>Helsingin Jäätelötehdas</td>
-      <td>Great ice cream. Comes at a price though</td>
-      <td>8.0</td>
-      <td>great ice cream. comes at a price though</td>
-      <td>great ice cream comes at a price though</td>
-      <td>great ice cream comes price though</td>
-      <td>great comes price though</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>3</td>
-      <td>Helsingin jäätelötehtaan kioski</td>
-      <td>Best ice cream by the biggest scoops I've trie...</td>
-      <td>7.8</td>
-      <td>best ice cream by the biggest scoops i've trie...</td>
-      <td>best ice cream by the biggest scoops ive tried...</td>
-      <td>best ice cream biggest scoops ive tried town</td>
-      <td>best biggest scoops town</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>4</td>
-      <td>Fazer Café</td>
-      <td>I have been coming here for many years great c...</td>
-      <td>8.2</td>
-      <td>i have been coming here for many years great c...</td>
-      <td>i have been coming here for many years great c...</td>
-      <td>coming many years great coffee food ice cream</td>
-      <td>coming many years great coffee food</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </div>
 <p>Remember that we also wanted to display the words in a shape of an ice cream. For this, we need an image of an ice cream to be used as a mask. The area we want our words to be in should be black in the image and the backgbround should be white. Therefore, we need a black icecream on a white background. This kind of image can be found in the file called “icecream.png”. To open the image in python, we first need to use a module called <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html">Image</a> from <a class="reference external" href="https://pillow.readthedocs.io/en/stable/index.html">PIL</a>-package and then transform it into an RGB-array using <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html"><code class="docutils literal notranslate"><span class="pre">array()</span></code></a> from <a class="reference external" href="https://numpy.org/">numpy</a>-package.</p>
 <div class="cell docutils container">
@@ -627,9 +393,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/wordcloud_16_0.png" src="../_images/wordcloud_16_0.png" />
-</div>
 </div>
 <p>That’s it! We’ve created a cool, ice cream -shaped wordcloud from ice cream stall reviews! Now, try to make a word cloud yourself from some other set of words! You can even try to create your own mask for the figure.</p>
 <p>Happy coding!</p>
@@ -645,8 +408,8 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;filename.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {

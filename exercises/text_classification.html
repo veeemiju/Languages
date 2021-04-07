@@ -4,7 +4,8 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>Text classification &#8212; Languages</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
@@ -102,7 +103,7 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p>
  <span class="caption-text">
   Exercises
  </span>
@@ -254,7 +255,7 @@
         
               <div>
                 
-  <div class="section" id="text-classification">
+  <section id="text-classification">
 <h1>Text classification<a class="headerlink" href="#text-classification" title="Permalink to this headline">¶</a></h1>
 <p>In this exercise we will create a simple text classification system. We want our system to be able to determine if a sentence has a positive or a negative tone. For example, a sentence “I love this sandwich.” would be a positive sentence whereas “I do not like this restaurant” is an examples of a negative sentence.</p>
 <p>The classification in this case will be based on <a class="reference external" href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">Naive Bayes classifier</a>. The idea of the classification is the following:</p>
@@ -306,7 +307,7 @@
 </table>
 <p>This would be the training data and the sentences we would like to evaluate would be compared to these sentences. The more training data there is, the more accurate the results will be.</p>
 <p>If you’re interested in the mathematics behind the algoritm, <a class="reference external" href="https://medium.com/syncedreview/applying-multinomial-naive-bayes-to-nlp-problems-a-practical-explanation-4f5271768ebf">read this</a>.</p>
-<div class="section" id="creating-and-training-the-classifier">
+<section id="creating-and-training-the-classifier">
 <h2>Creating and training the classifier<a class="headerlink" href="#creating-and-training-the-classifier" title="Permalink to this headline">¶</a></h2>
 <p>For this exercise, we will use a library called <a class="reference external" href="https://textblob.readthedocs.io/en/dev/index.html">textblob</a> that contains practical tools for common natural language processing tasks. Textblob-library has a number of different classifiers to choose from. We will be using the <a class="reference external" href="https://textblob.readthedocs.io/en/dev/api_reference.html#textblob.classifiers.NaiveBayesClassifier">Naive Bayes Classifier</a>.</p>
 <p>We will define a set of training data, which contains sentences and their category (either ‘pos’ or ‘neg’) and feed the training data to the classifier.</p>
@@ -340,8 +341,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="testing-the-classifier">
+</section>
+<section id="testing-the-classifier">
 <h2>Testing the classifier<a class="headerlink" href="#testing-the-classifier" title="Permalink to this headline">¶</a></h2>
 <p>Now that we have created and trained the classifier, we can test how well it performs.
 Let’s write couple of sentences and test them using the <a class="reference external" href="https://textblob.readthedocs.io/en/dev/api_reference.html#textblob.classifiers.NaiveBayesClassifier.classify"><code class="docutils literal notranslate"><span class="pre">classify()</span></code></a>-method.</p>
@@ -349,11 +350,6 @@ Let’s write couple of sentences and test them using the <a class="reference ex
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a test sentence and classify it</span>
 <span class="n">cl</span><span class="o">.</span><span class="n">classify</span><span class="p">(</span><span class="s2">&quot;This is an amazing library!&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;pos&#39;
 </pre></div>
 </div>
 </div>
@@ -382,15 +378,10 @@ Let’s write couple of sentences and test them using the <a class="reference ex
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8333333333333334
-</pre></div>
-</div>
-</div>
 </div>
 <p>It looks like the classifier got 83% correct. Not too bad considering our small set of training data. We can also train our classifier more and see if we get different results. The classifier can further be trained using the <a class="reference external" href="https://textblob.readthedocs.io/en/dev/api_reference.html#textblob.classifiers.NaiveBayesClassifier.update"><code class="docutils literal notranslate"><span class="pre">update()</span></code></a>-method. Figure out how it works and make more train the classifier more! You can also check if the accuracy has improved after the training.</p>
-</div>
-<div class="section" id="playing-with-probabilities">
+</section>
+<section id="playing-with-probabilities">
 <h2>Playing with probabilities<a class="headerlink" href="#playing-with-probabilities" title="Permalink to this headline">¶</a></h2>
 <p>We can dig deeper into the probabilities of a sentence being positive or negative by using <a class="reference external" href="https://textblob.readthedocs.io/en/dev/api_reference.html#textblob.classifiers.NaiveBayesClassifier.prob_classify"><code class="docutils literal notranslate"><span class="pre">prob_classify()</span></code></a>-method. Let’s try it out!</p>
 <div class="cell docutils container">
@@ -408,21 +399,11 @@ Let’s write couple of sentences and test them using the <a class="reference ex
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6311475409836074
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the probability of the sentence being negative</span>
 <span class="n">prob_dist</span><span class="o">.</span><span class="n">prob</span><span class="p">(</span><span class="s2">&quot;neg&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.36885245901639313
 </pre></div>
 </div>
 </div>
@@ -438,11 +419,6 @@ Let’s write couple of sentences and test them using the <a class="reference ex
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;pos&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -454,20 +430,11 @@ Let’s write couple of sentences and test them using the <a class="reference ex
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The beer is good.
-pos
-
-But the hangover is horrible.
-neg
-</pre></div>
-</div>
-</div>
 </div>
 <p>Are you interested in learning more about Naive Bayes classification? Try this tutorial:</p>
 <p><a class="reference external" href="https://www.datacamp.com/community/tutorials/naive-bayes-scikit-learn">https://www.datacamp.com/community/tutorials/naive-bayes-scikit-learn</a></p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
