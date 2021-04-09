@@ -282,6 +282,70 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>Title</th>
+      <th>Reviews</th>
+      <th>Ratings</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>Jädelino</td>
+      <td>Chili chocolate flavour to burn you and matcha...</td>
+      <td>9.1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Bus Gelato</td>
+      <td>Great Service good coffee and excellent artesa...</td>
+      <td>8.7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>Helsingin Jäätelötehdas</td>
+      <td>Great ice cream. Comes at a price though</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>Helsingin jäätelötehtaan kioski</td>
+      <td>Best ice cream by the biggest scoops I've trie...</td>
+      <td>7.8</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Fazer Café</td>
+      <td>I have been coming here for many years great c...</td>
+      <td>8.2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 <section id="cleaning-the-data">
@@ -308,6 +372,96 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-2-a9a9ad67d42d&gt;:5: FutureWarning: The default value of regex will change from True to False in a future version.
+  data[&#39;review_nopunct&#39;] = data[&#39;review_lowercase&#39;].str.replace(&#39;[^\w\s]&#39;,&#39;&#39;) #Removes non words and letters
+[nltk_data] Downloading package stopwords to /home/runner/nltk_data...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]   Unzipping corpora/stopwords.zip.
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>Title</th>
+      <th>Reviews</th>
+      <th>Ratings</th>
+      <th>review_lowercase</th>
+      <th>review_nopunct</th>
+      <th>review_nostopword</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>Jädelino</td>
+      <td>Chili chocolate flavour to burn you and matcha...</td>
+      <td>9.1</td>
+      <td>chili chocolate flavour to burn you and matcha...</td>
+      <td>chili chocolate flavour to burn you and matcha...</td>
+      <td>chili chocolate flavour burn matcha tea flavou...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Bus Gelato</td>
+      <td>Great Service good coffee and excellent artesa...</td>
+      <td>8.7</td>
+      <td>great service good coffee and excellent artesa...</td>
+      <td>great service good coffee and excellent artesa...</td>
+      <td>great service good coffee excellent artesan ic...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>Helsingin Jäätelötehdas</td>
+      <td>Great ice cream. Comes at a price though</td>
+      <td>8.0</td>
+      <td>great ice cream. comes at a price though</td>
+      <td>great ice cream comes at a price though</td>
+      <td>great ice cream comes price though</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>Helsingin jäätelötehtaan kioski</td>
+      <td>Best ice cream by the biggest scoops I've trie...</td>
+      <td>7.8</td>
+      <td>best ice cream by the biggest scoops i've trie...</td>
+      <td>best ice cream by the biggest scoops ive tried...</td>
+      <td>best ice cream biggest scoops ive tried town</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Fazer Café</td>
+      <td>I have been coming here for many years great c...</td>
+      <td>8.2</td>
+      <td>i have been coming here for many years great c...</td>
+      <td>i have been coming here for many years great c...</td>
+      <td>coming many years great coffee food ice cream</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 <section id="making-the-cloud">
@@ -344,6 +498,9 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/wordcloud_10_0.png" src="../_images/wordcloud_10_0.png" />
+</div>
 </div>
 <p>Great! We see a wordcloud from our reviews now. However, there are still some extra words that perhaps we would not like to include in our cloud such as ‘ice’, ‘cream’, ‘ive’, ‘take’, ‘tried’ and ‘try’. These were not included in the stop words we used. We can include them manually, though.</p>
 <div class="cell docutils container">
@@ -357,6 +514,94 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>Title</th>
+      <th>Reviews</th>
+      <th>Ratings</th>
+      <th>review_lowercase</th>
+      <th>review_nopunct</th>
+      <th>review_nostopword</th>
+      <th>review_cleaned</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>Jädelino</td>
+      <td>Chili chocolate flavour to burn you and matcha...</td>
+      <td>9.1</td>
+      <td>chili chocolate flavour to burn you and matcha...</td>
+      <td>chili chocolate flavour to burn you and matcha...</td>
+      <td>chili chocolate flavour burn matcha tea flavou...</td>
+      <td>chili chocolate flavour burn matcha tea flavou...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Bus Gelato</td>
+      <td>Great Service good coffee and excellent artesa...</td>
+      <td>8.7</td>
+      <td>great service good coffee and excellent artesa...</td>
+      <td>great service good coffee and excellent artesa...</td>
+      <td>great service good coffee excellent artesan ic...</td>
+      <td>great service good coffee excellent artesan ic...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>Helsingin Jäätelötehdas</td>
+      <td>Great ice cream. Comes at a price though</td>
+      <td>8.0</td>
+      <td>great ice cream. comes at a price though</td>
+      <td>great ice cream comes at a price though</td>
+      <td>great ice cream comes price though</td>
+      <td>great comes price though</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>Helsingin jäätelötehtaan kioski</td>
+      <td>Best ice cream by the biggest scoops I've trie...</td>
+      <td>7.8</td>
+      <td>best ice cream by the biggest scoops i've trie...</td>
+      <td>best ice cream by the biggest scoops ive tried...</td>
+      <td>best ice cream biggest scoops ive tried town</td>
+      <td>best biggest scoops town</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Fazer Café</td>
+      <td>I have been coming here for many years great c...</td>
+      <td>8.2</td>
+      <td>i have been coming here for many years great c...</td>
+      <td>i have been coming here for many years great c...</td>
+      <td>coming many years great coffee food ice cream</td>
+      <td>coming many years great coffee food</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Remember that we also wanted to display the words in a shape of an ice cream. For this, we need an image of an ice cream to be used as a mask. The area we want our words to be in should be black in the image and the backgbround should be white. Therefore, we need a black icecream on a white background. This kind of image can be found in the file called “icecream.png”. To open the image in python, we first need to use a module called <a class="reference external" href="https://pillow.readthedocs.io/en/stable/reference/Image.html">Image</a> from <a class="reference external" href="https://pillow.readthedocs.io/en/stable/index.html">PIL</a>-package and then transform it into an RGB-array using <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.array.html"><code class="docutils literal notranslate"><span class="pre">array()</span></code></a> from <a class="reference external" href="https://numpy.org/">numpy</a>-package.</p>
 <div class="cell docutils container">
@@ -392,6 +637,9 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/wordcloud_16_0.png" src="../_images/wordcloud_16_0.png" />
 </div>
 </div>
 <p>That’s it! We’ve created a cool, ice cream -shaped wordcloud from ice cream stall reviews! Now, try to make a word cloud yourself from some other set of words! You can even try to create your own mask for the figure.</p>

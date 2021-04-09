@@ -353,6 +353,11 @@ Let’s write couple of sentences and test them using the <a class="reference ex
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;pos&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>It looks like the classifier works! At least in this case. Try another sentence yourself! Test for example, if the classifier can handle a negative sentence properly.</p>
 <p>We can also define a larger set of test sentences and see how accurately the classifier can classify those sentences. For this we need can use <a class="reference external" href="https://textblob.readthedocs.io/en/dev/api_reference.html#textblob.classifiers.NaiveBayesClassifier.accuracy"><code class="docutils literal notranslate"><span class="pre">accuracy()</span></code></a>-method.</p>
@@ -378,6 +383,11 @@ Let’s write couple of sentences and test them using the <a class="reference ex
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.8333333333333334
+</pre></div>
+</div>
+</div>
 </div>
 <p>It looks like the classifier got 83% correct. Not too bad considering our small set of training data. We can also train our classifier more and see if we get different results. The classifier can further be trained using the <a class="reference external" href="https://textblob.readthedocs.io/en/dev/api_reference.html#textblob.classifiers.NaiveBayesClassifier.update"><code class="docutils literal notranslate"><span class="pre">update()</span></code></a>-method. Figure out how it works and make more train the classifier more! You can also check if the accuracy has improved after the training.</p>
 </section>
@@ -399,11 +409,21 @@ Let’s write couple of sentences and test them using the <a class="reference ex
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6311475409836066
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the probability of the sentence being negative</span>
 <span class="n">prob_dist</span><span class="o">.</span><span class="n">prob</span><span class="p">(</span><span class="s2">&quot;neg&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.36885245901639313
 </pre></div>
 </div>
 </div>
@@ -419,6 +439,11 @@ Let’s write couple of sentences and test them using the <a class="reference ex
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;pos&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -427,6 +452,15 @@ Let’s write couple of sentences and test them using the <a class="reference ex
     <span class="nb">print</span><span class="p">(</span><span class="n">sentence</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">sentence</span><span class="o">.</span><span class="n">classify</span><span class="p">())</span>
     <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The beer is good.
+pos
+
+But the hangover is horrible.
+neg
 </pre></div>
 </div>
 </div>
