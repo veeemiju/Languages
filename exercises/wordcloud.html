@@ -4,11 +4,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wordcloud &#8212; Languages</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -20,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -35,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -45,7 +41,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -59,23 +55,14 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Text classification" href="text_classification.html" />
     <link rel="prev" title="Analyzing Shakespeare" href="shakespeare.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-<!-- Opengraph tags -->
-<meta property="og:url"         content="https://opendata-education.github.io/Languages/intro.html/exercises/wordcloud.html" />
-<meta property="og:type"        content="article" />
-<meta property="og:title"       content="Wordcloud" />
-<meta property="og:description" content="Wordcloud  Word cloud is a visual representation of text data that can be shown for example in a shape of a cloud. The words in the cloud are typically represen" />
-<meta property="og:image"       content="https://opendata-education.github.io/Languages/intro.html/_static/logo.png" />
-
-<meta name="twitter:card" content="summary" />
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -84,32 +71,32 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  <img src="../_static/logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Languages</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Languages</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
    Welcome to the world of open data
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   Exercises
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="shakespeare.html">
    Analyzing Shakespeare
@@ -127,6 +114,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -192,12 +180,12 @@
     </div>
 </div>
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -223,12 +211,11 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#importing-the-review-data">
    Importing the review data
@@ -246,8 +233,7 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
@@ -256,7 +242,7 @@
         
               <div>
                 
-  <section id="wordcloud">
+  <div class="section" id="wordcloud">
 <h1>Wordcloud<a class="headerlink" href="#wordcloud" title="Permalink to this headline">¶</a></h1>
 <p>Word cloud is a visual representation of text data that can be shown for example in a shape of a cloud. The words in the cloud are typically represented in different colors and font-sizes. See an example of a word cloud below!</p>
 <p><img alt="cloud" src="../_images/opendata-cloud.png" /></p>
@@ -267,7 +253,7 @@
 <li><p>Display the data in a word cloud that has a form of an ice cream</p></li>
 </ul>
 <p>Let’s get to work!</p>
-<section id="importing-the-review-data">
+<div class="section" id="importing-the-review-data">
 <h2>Importing the review data<a class="headerlink" href="#importing-the-review-data" title="Permalink to this headline">¶</a></h2>
 <p>We begin by importing the data we need. The data is available on a csv-file called “icecream_stall_reviews.csv”. It is a collection of ice cream stall reviews that have been <a class="reference external" href="https://en.wikipedia.org/wiki/Web_scraping">scraped</a> from <a class="reference external" href="https://foursquare.com/explore?mode=url&amp;near=Helsinki&amp;nearGeoId=72057594038586161&amp;q=Ice%20cream">foursquare.com</a>. To read it, we can use a python-library called <a class="reference external" href="https://pandas.pydata.org/">pandas</a>. The function <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">read_csv()</span></code></span> can do the job for us if we know the path to the data file. The file is in the same directory as this notebook-file so we can use the name of the file as it is.</p>
 <div class="cell docutils container">
@@ -347,8 +333,8 @@
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="cleaning-the-data">
+</div>
+<div class="section" id="cleaning-the-data">
 <h2>Cleaning the data<a class="headerlink" href="#cleaning-the-data" title="Permalink to this headline">¶</a></h2>
 <p>It seems that our data consists of the name of the stall, review-text and a rating number. Our next task is to extract the review-texts from the table, tokenize them and then clean them. We have done similar task already on a previous exercise where we studied Shakespeare’s Hamlet. Let’s do the cleaning this time using some efficient <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions">list comprehensions</a> and <a class="reference external" href="https://docs.python.org/3/reference/expressions.html#lambda">lambda</a>-expressions. Don’t worry if these look too overwhelming, these are just a way to do things quicker.</p>
 <p>Let’s get to work!</p>
@@ -375,10 +361,10 @@
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-2-a9a9ad67d42d&gt;:5: FutureWarning: The default value of regex will change from True to False in a future version.
   data[&#39;review_nopunct&#39;] = data[&#39;review_lowercase&#39;].str.replace(&#39;[^\w\s]&#39;,&#39;&#39;) #Removes non words and letters
-[nltk_data] Downloading package stopwords to /home/runner/nltk_data...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]   Unzipping corpora/stopwords.zip.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package stopwords to /home/runner/nltk_data...
+[nltk_data]   Unzipping corpora/stopwords.zip.
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -463,8 +449,8 @@
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="making-the-cloud">
+</div>
+<div class="section" id="making-the-cloud">
 <h2>Making the cloud<a class="headerlink" href="#making-the-cloud" title="Permalink to this headline">¶</a></h2>
 <p>Now we have a cleaned set of review-data to be displayed on our word cloud! To be able to do this, we need to import <a class="reference external" href="https://amueller.github.io/word_cloud/">wordcloud</a>-package and <a class="reference external" href="https://matplotlib.org/">matplotlib</a>-package for plotting. We also need to transform our list of reviews to a single text-string. The classes and functions we need in this sections are:</p>
 <ul class="simple">
@@ -656,8 +642,8 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;filename.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -711,11 +697,9 @@
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>

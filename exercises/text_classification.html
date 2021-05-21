@@ -4,11 +4,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Text classification &#8212; Languages</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -20,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -35,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -45,7 +41,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -58,23 +54,14 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="prev" title="Wordcloud" href="wordcloud.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-<!-- Opengraph tags -->
-<meta property="og:url"         content="https://opendata-education.github.io/Languages/intro.html/exercises/text_classification.html" />
-<meta property="og:type"        content="article" />
-<meta property="og:title"       content="Text classification" />
-<meta property="og:description" content="Text classification  In this exercise we will create a simple text classification system. We want our system to be able to determine if a sentence has a positiv" />
-<meta property="og:image"       content="https://opendata-education.github.io/Languages/intro.html/_static/logo.png" />
-
-<meta name="twitter:card" content="summary" />
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -83,32 +70,32 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  <img src="../_static/logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Languages</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Languages</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
    Welcome to the world of open data
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   Exercises
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="shakespeare.html">
    Analyzing Shakespeare
@@ -126,6 +113,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -191,12 +179,12 @@
     </div>
 </div>
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -222,12 +210,11 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#creating-and-training-the-classifier">
    Creating and training the classifier
@@ -245,8 +232,7 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
@@ -255,7 +241,7 @@
         
               <div>
                 
-  <section id="text-classification">
+  <div class="section" id="text-classification">
 <h1>Text classification<a class="headerlink" href="#text-classification" title="Permalink to this headline">¶</a></h1>
 <p>In this exercise we will create a simple text classification system. We want our system to be able to determine if a sentence has a positive or a negative tone. For example, a sentence “I love this sandwich.” would be a positive sentence whereas “I do not like this restaurant” is an examples of a negative sentence.</p>
 <p>The classification in this case will be based on <a class="reference external" href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">Naive Bayes classifier</a>. The idea of the classification is the following:</p>
@@ -307,7 +293,7 @@
 </table>
 <p>This would be the training data and the sentences we would like to evaluate would be compared to these sentences. The more training data there is, the more accurate the results will be.</p>
 <p>If you’re interested in the mathematics behind the algoritm, <a class="reference external" href="https://medium.com/syncedreview/applying-multinomial-naive-bayes-to-nlp-problems-a-practical-explanation-4f5271768ebf">read this</a>.</p>
-<section id="creating-and-training-the-classifier">
+<div class="section" id="creating-and-training-the-classifier">
 <h2>Creating and training the classifier<a class="headerlink" href="#creating-and-training-the-classifier" title="Permalink to this headline">¶</a></h2>
 <p>For this exercise, we will use a library called <a class="reference external" href="https://textblob.readthedocs.io/en/dev/index.html">textblob</a> that contains practical tools for common natural language processing tasks. Textblob-library has a number of different classifiers to choose from. We will be using the <a class="reference external" href="https://textblob.readthedocs.io/en/dev/api_reference.html#textblob.classifiers.NaiveBayesClassifier">Naive Bayes Classifier</a>.</p>
 <p>We will define a set of training data, which contains sentences and their category (either ‘pos’ or ‘neg’) and feed the training data to the classifier.</p>
@@ -341,8 +327,8 @@
 </div>
 </div>
 </div>
-</section>
-<section id="testing-the-classifier">
+</div>
+<div class="section" id="testing-the-classifier">
 <h2>Testing the classifier<a class="headerlink" href="#testing-the-classifier" title="Permalink to this headline">¶</a></h2>
 <p>Now that we have created and trained the classifier, we can test how well it performs.
 Let’s write couple of sentences and test them using the <a class="reference external" href="https://textblob.readthedocs.io/en/dev/api_reference.html#textblob.classifiers.NaiveBayesClassifier.classify"><code class="docutils literal notranslate"><span class="pre">classify()</span></code></a>-method.</p>
@@ -390,8 +376,8 @@ Let’s write couple of sentences and test them using the <a class="reference ex
 </div>
 </div>
 <p>It looks like the classifier got 83% correct. Not too bad considering our small set of training data. We can also train our classifier more and see if we get different results. The classifier can further be trained using the <a class="reference external" href="https://textblob.readthedocs.io/en/dev/api_reference.html#textblob.classifiers.NaiveBayesClassifier.update"><code class="docutils literal notranslate"><span class="pre">update()</span></code></a>-method. Figure out how it works and make more train the classifier more! You can also check if the accuracy has improved after the training.</p>
-</section>
-<section id="playing-with-probabilities">
+</div>
+<div class="section" id="playing-with-probabilities">
 <h2>Playing with probabilities<a class="headerlink" href="#playing-with-probabilities" title="Permalink to this headline">¶</a></h2>
 <p>We can dig deeper into the probabilities of a sentence being positive or negative by using <a class="reference external" href="https://textblob.readthedocs.io/en/dev/api_reference.html#textblob.classifiers.NaiveBayesClassifier.prob_classify"><code class="docutils literal notranslate"><span class="pre">prob_classify()</span></code></a>-method. Let’s try it out!</p>
 <div class="cell docutils container">
@@ -467,8 +453,8 @@ neg
 </div>
 <p>Are you interested in learning more about Naive Bayes classification? Try this tutorial:</p>
 <p><a class="reference external" href="https://www.datacamp.com/community/tutorials/naive-bayes-scikit-learn">https://www.datacamp.com/community/tutorials/naive-bayes-scikit-learn</a></p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -521,11 +507,9 @@ neg
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>

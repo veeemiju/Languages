@@ -4,11 +4,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Analyzing Shakespeare &#8212; Languages</title>
     
-  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -20,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -35,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -45,7 +41,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -59,23 +55,14 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Wordcloud" href="wordcloud.html" />
     <link rel="prev" title="Welcome to the world of open data" href="../intro.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-<!-- Opengraph tags -->
-<meta property="og:url"         content="https://opendata-education.github.io/Languages/intro.html/exercises/shakespeare.html" />
-<meta property="og:type"        content="article" />
-<meta property="og:title"       content="Analyzing Shakespeare" />
-<meta property="og:description" content="Analyzing Shakespeare  This exercise is an introduciton to natural language processing using python. We will be analyzing the most frequently appearing words in" />
-<meta property="og:image"       content="https://opendata-education.github.io/Languages/intro.html/_static/logo.png" />
-
-<meta name="twitter:card" content="summary" />
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -84,32 +71,32 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../index.html">
-  
-  <img src="../_static/logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Languages</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Languages</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../intro.html">
    Welcome to the world of open data
   </a>
  </li>
 </ul>
-<p>
+<p class="caption">
  <span class="caption-text">
   Exercises
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Analyzing Shakespeare
@@ -127,6 +114,7 @@
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -192,12 +180,12 @@
     </div>
 </div>
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -223,12 +211,11 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#choosing-the-sample">
    Choosing the sample
@@ -251,8 +238,7 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
@@ -261,11 +247,11 @@
         
               <div>
                 
-  <section id="analyzing-shakespeare">
+  <div class="section" id="analyzing-shakespeare">
 <h1>Analyzing Shakespeare<a class="headerlink" href="#analyzing-shakespeare" title="Permalink to this headline">¶</a></h1>
 <p>This exercise is an introduciton to natural language processing using python. We will be analyzing the most frequently appearing words in one of the books found from <a class="reference external" href="https://www.gutenberg.org/">project Gutenberg</a> — Shakespeare’s Hamlet.</p>
 <p>We will be using a python library called <a class="reference external" href="https://www.nltk.org/">nltk</a> (Natural language toolkit), which has some really useful features when it comes to learning natural language processing. For this exercise, we need to choose a <a class="reference external" href="https://en.wikipedia.org/wiki/Text_corpus">corpus</a>, which is essentially a language resource that consists of a collection of texts. For this exercise, we will use texts from project Gutenberg. Luckily the nltk-library can provide us with a collection of texts from project Gutenberg.</p>
-<section id="choosing-the-sample">
+<div class="section" id="choosing-the-sample">
 <h2>Choosing the sample<a class="headerlink" href="#choosing-the-sample" title="Permalink to this headline">¶</a></h2>
 <p>Let’s begin to explore the world of natural language processing by browsing the project Gutenberg’s book collection available on nltk.corpus -library. For this, we need to import gutenberg-package from the mentioned library.</p>
 <div class="cell docutils container">
@@ -330,7 +316,9 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /home/runner/nltk_data...
-[nltk_data]   Unzipping tokenizers/punkt.zip.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]   Unzipping tokenizers/punkt.zip.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Words: [&#39;[&#39;, &#39;The&#39;, &#39;Tragedie&#39;, &#39;of&#39;, &#39;Hamlet&#39;, &#39;by&#39;, ...]
@@ -471,8 +459,8 @@ Sentences: [[&#39;[&#39;, &#39;The&#39;, &#39;Tragedie&#39;, &#39;of&#39;, &#39;
 </div>
 </div>
 </div>
-</section>
-<section id="cleaning-the-sample">
+</div>
+<div class="section" id="cleaning-the-sample">
 <h2>Cleaning the sample<a class="headerlink" href="#cleaning-the-sample" title="Permalink to this headline">¶</a></h2>
 <p>To be able to efficiently analyze the texts, we need to clean the text from any extra characters etc. We can observe the appearence of our raw text word by word by tokenizing it. Tokenization is essentially splitting a phrase, sentence, paragraph, or an entire text document into smaller units, such as individual words or terms, sentences, etc. Each of these smaller units are called tokens. We can perform tokenization to words by <a class="reference external" href="https://docs.python.org/3.3/library/stdtypes.html#str.split">splitting</a> it on each whitespace or line break character.</p>
 <p>See the appearence of the text on the cell below.</p>
@@ -641,12 +629,12 @@ Sentences: [[&#39;[&#39;, &#39;The&#39;, &#39;Tragedie&#39;, &#39;of&#39;, &#39;
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">LookupError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="nn">/opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/nltk/corpus/util.py</span> in <span class="ni">__load</span><span class="nt">(self)</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/nltk/corpus/util.py</span> in <span class="ni">__load</span><span class="nt">(self)</span>
 <span class="g g-Whitespace">     </span><span class="mi">82</span>                 <span class="k">try</span><span class="p">:</span>
 <span class="ne">---&gt; </span><span class="mi">83</span>                     <span class="n">root</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subdir</span><span class="p">,</span> <span class="n">zip_name</span><span class="p">))</span>
 <span class="g g-Whitespace">     </span><span class="mi">84</span>                 <span class="k">except</span> <span class="ne">LookupError</span><span class="p">:</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/nltk/data.py</span> in <span class="ni">find</span><span class="nt">(resource_name, paths)</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/nltk/data.py</span> in <span class="ni">find</span><span class="nt">(resource_name, paths)</span>
 <span class="g g-Whitespace">    </span><span class="mi">582</span>     <span class="n">resource_not_found</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="si">%s</span><span class="se">\n</span><span class="si">%s</span><span class="se">\n</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">sep</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">sep</span><span class="p">)</span>
 <span class="ne">--&gt; </span><span class="mi">583</span>     <span class="k">raise</span> <span class="ne">LookupError</span><span class="p">(</span><span class="n">resource_not_found</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">584</span> 
@@ -665,9 +653,9 @@ Sentences: [[&#39;[&#39;, &#39;The&#39;, &#39;Tragedie&#39;, &#39;of&#39;, &#39;
 
   <span class="n">Searched</span> <span class="ow">in</span><span class="p">:</span>
     <span class="o">-</span> <span class="s1">&#39;/home/runner/nltk_data&#39;</span>
-    <span class="o">-</span> <span class="s1">&#39;/opt/hostedtoolcache/Python/3.8.8/x64/nltk_data&#39;</span>
-    <span class="o">-</span> <span class="s1">&#39;/opt/hostedtoolcache/Python/3.8.8/x64/share/nltk_data&#39;</span>
-    <span class="o">-</span> <span class="s1">&#39;/opt/hostedtoolcache/Python/3.8.8/x64/lib/nltk_data&#39;</span>
+    <span class="o">-</span> <span class="s1">&#39;/opt/hostedtoolcache/Python/3.8.10/x64/nltk_data&#39;</span>
+    <span class="o">-</span> <span class="s1">&#39;/opt/hostedtoolcache/Python/3.8.10/x64/share/nltk_data&#39;</span>
+    <span class="o">-</span> <span class="s1">&#39;/opt/hostedtoolcache/Python/3.8.10/x64/lib/nltk_data&#39;</span>
     <span class="o">-</span> <span class="s1">&#39;/usr/share/nltk_data&#39;</span>
     <span class="o">-</span> <span class="s1">&#39;/usr/local/share/nltk_data&#39;</span>
     <span class="o">-</span> <span class="s1">&#39;/usr/lib/nltk_data&#39;</span>
@@ -684,28 +672,28 @@ Sentences: [[&#39;[&#39;, &#39;The&#39;, &#39;Tragedie&#39;, &#39;of&#39;, &#39;
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">stop_words</span> <span class="o">=</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="nb">print</span><span class="p">(</span><span class="n">stop_words</span><span class="p">)</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/nltk/corpus/util.py</span> in <span class="ni">__getattr__</span><span class="nt">(self, attr)</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/nltk/corpus/util.py</span> in <span class="ni">__getattr__</span><span class="nt">(self, attr)</span>
 <span class="g g-Whitespace">    </span><span class="mi">118</span>             <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;LazyCorpusLoader object has no attribute &#39;__bases__&#39;&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">119</span> 
 <span class="ne">--&gt; </span><span class="mi">120</span>         <span class="bp">self</span><span class="o">.</span><span class="n">__load</span><span class="p">()</span>
 <span class="g g-Whitespace">    </span><span class="mi">121</span>         <span class="c1"># This looks circular, but its not, since __load() changes our</span>
 <span class="g g-Whitespace">    </span><span class="mi">122</span>         <span class="c1"># __class__ to something new:</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/nltk/corpus/util.py</span> in <span class="ni">__load</span><span class="nt">(self)</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/nltk/corpus/util.py</span> in <span class="ni">__load</span><span class="nt">(self)</span>
 <span class="g g-Whitespace">     </span><span class="mi">83</span>                     <span class="n">root</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subdir</span><span class="p">,</span> <span class="n">zip_name</span><span class="p">))</span>
 <span class="g g-Whitespace">     </span><span class="mi">84</span>                 <span class="k">except</span> <span class="ne">LookupError</span><span class="p">:</span>
 <span class="ne">---&gt; </span><span class="mi">85</span>                     <span class="k">raise</span> <span class="n">e</span>
 <span class="g g-Whitespace">     </span><span class="mi">86</span> 
 <span class="g g-Whitespace">     </span><span class="mi">87</span>         <span class="c1"># Load the corpus.</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/nltk/corpus/util.py</span> in <span class="ni">__load</span><span class="nt">(self)</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/nltk/corpus/util.py</span> in <span class="ni">__load</span><span class="nt">(self)</span>
 <span class="g g-Whitespace">     </span><span class="mi">78</span>         <span class="k">else</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">79</span>             <span class="k">try</span><span class="p">:</span>
 <span class="ne">---&gt; </span><span class="mi">80</span>                 <span class="n">root</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">/</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subdir</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">__name</span><span class="p">))</span>
 <span class="g g-Whitespace">     </span><span class="mi">81</span>             <span class="k">except</span> <span class="ne">LookupError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">82</span>                 <span class="k">try</span><span class="p">:</span>
 
-<span class="nn">/opt/hostedtoolcache/Python/3.8.8/x64/lib/python3.8/site-packages/nltk/data.py</span> in <span class="ni">find</span><span class="nt">(resource_name, paths)</span>
+<span class="nn">/opt/hostedtoolcache/Python/3.8.10/x64/lib/python3.8/site-packages/nltk/data.py</span> in <span class="ni">find</span><span class="nt">(resource_name, paths)</span>
 <span class="g g-Whitespace">    </span><span class="mi">581</span>     <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;*&quot;</span> <span class="o">*</span> <span class="mi">70</span>
 <span class="g g-Whitespace">    </span><span class="mi">582</span>     <span class="n">resource_not_found</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="si">%s</span><span class="se">\n</span><span class="si">%s</span><span class="se">\n</span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">sep</span><span class="p">,</span> <span class="n">msg</span><span class="p">,</span> <span class="n">sep</span><span class="p">)</span>
 <span class="ne">--&gt; </span><span class="mi">583</span>     <span class="k">raise</span> <span class="ne">LookupError</span><span class="p">(</span><span class="n">resource_not_found</span><span class="p">)</span>
@@ -726,9 +714,9 @@ Sentences: [[&#39;[&#39;, &#39;The&#39;, &#39;Tragedie&#39;, &#39;of&#39;, &#39;
 
   <span class="n">Searched</span> <span class="ow">in</span><span class="p">:</span>
     <span class="o">-</span> <span class="s1">&#39;/home/runner/nltk_data&#39;</span>
-    <span class="o">-</span> <span class="s1">&#39;/opt/hostedtoolcache/Python/3.8.8/x64/nltk_data&#39;</span>
-    <span class="o">-</span> <span class="s1">&#39;/opt/hostedtoolcache/Python/3.8.8/x64/share/nltk_data&#39;</span>
-    <span class="o">-</span> <span class="s1">&#39;/opt/hostedtoolcache/Python/3.8.8/x64/lib/nltk_data&#39;</span>
+    <span class="o">-</span> <span class="s1">&#39;/opt/hostedtoolcache/Python/3.8.10/x64/nltk_data&#39;</span>
+    <span class="o">-</span> <span class="s1">&#39;/opt/hostedtoolcache/Python/3.8.10/x64/share/nltk_data&#39;</span>
+    <span class="o">-</span> <span class="s1">&#39;/opt/hostedtoolcache/Python/3.8.10/x64/lib/nltk_data&#39;</span>
     <span class="o">-</span> <span class="s1">&#39;/usr/share/nltk_data&#39;</span>
     <span class="o">-</span> <span class="s1">&#39;/usr/local/share/nltk_data&#39;</span>
     <span class="o">-</span> <span class="s1">&#39;/usr/lib/nltk_data&#39;</span>
@@ -782,8 +770,8 @@ Sentences: [[&#39;[&#39;, &#39;The&#39;, &#39;Tragedie&#39;, &#39;of&#39;, &#39;
 </div>
 </div>
 </div>
-</section>
-<section id="lemmatization">
+</div>
+<div class="section" id="lemmatization">
 <h2>Lemmatization<a class="headerlink" href="#lemmatization" title="Permalink to this headline">¶</a></h2>
 <p>According to <a class="reference external" href="https://en.wikipedia.org/wiki/Lemmatisation">Wikipedia</a>, lemmatisation in linguistics is the process of grouping together the inflected forms of a word so they can be analysed as a single item, identified by the word’s lemma, or dictionary form.</p>
 <p>Let’s do lemmatization for our sample text to continue with our analysis. For this, we can use <a class="reference external" href="http://www.nltk.org/api/nltk.stem.html#nltk.stem.wordnet.WordNetLemmatizer"><code class="docutils literal notranslate"><span class="pre">WordNetLemmatizer</span></code></a> from the nltk.stem -package. See how to use it in the following cell!</p>
@@ -811,15 +799,13 @@ Sentences: [[&#39;[&#39;, &#39;The&#39;, &#39;Tragedie&#39;, &#39;of&#39;, &#39;
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package wordnet to /home/runner/nltk_data...
+[nltk_data]   Unzipping corpora/wordnet.zip.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]   Unzipping corpora/wordnet.zip.
-</pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="analyzing-the-sample-text">
+<div class="section" id="analyzing-the-sample-text">
 <h2>Analyzing the sample text<a class="headerlink" href="#analyzing-the-sample-text" title="Permalink to this headline">¶</a></h2>
 <p>Finally after cleaning and lemmatizing the sample, it is in the desired state. After the lemmatization, our list of words should contain multiple occurences of the same words. Next, we can analyze the sample further to see which words appear most frequently. For this, we will use <a class="reference external" href="http://www.nltk.org/api/nltk.html#nltk.probability.FreqDist">FreqDist()</a>-class from nltk.probability -package.</p>
 <div class="cell docutils container">
@@ -882,8 +868,8 @@ Sentences: [[&#39;[&#39;, &#39;The&#39;, &#39;Tragedie&#39;, &#39;of&#39;, &#39;
 <p>That’s it! We’ve managed to find out the most commonly used words by Shakespeare in Hamlet and learned how to check that how the words are distributed on the sample.</p>
 <p>Can you figure out why the word “ham” appears to be the most frequently used word when stop words are removed? What are “bar” and “Fran” on the dispersion plot and why they appear only at the beginning of the book?</p>
 <p>Try to find out the most common words for some other book yourself (from project Gutenberg, for example)!</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -937,11 +923,9 @@ Sentences: [[&#39;[&#39;, &#39;The&#39;, &#39;Tragedie&#39;, &#39;of&#39;, &#39;
 
       </div>
     </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-    
-  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
-
-
-    
+  
   </body>
 </html>
